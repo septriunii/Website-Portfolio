@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Spotlight from './components/Spotlight';
+import BackgroundCode from './components/BackgroundCode';
 import CustomCursor from './components/CustomCursor';
 import Navigation from './components/Navigation';
 import ExperienceCard from './components/ExperienceCard';
@@ -21,7 +22,7 @@ const sections: Section[] = [
 const experiences: Experience[] = [
   {
     id: 'exp1',
-    year: '2021 — PRST',
+    year: '2021 — Present',
     title: 'Lead Systems Engineer',
     company: 'Flux Foundry',
     description: 'Architected the core rendering engine for high-traffic real-time dashboards. Reduced latency by 40% through custom WASM implementations.',
@@ -58,7 +59,7 @@ const projects: Project[] = [
     code: 'PRJ_02_GRPH',
     title: 'Spectra Graph',
     description: 'Visualizing complex datasets through force-directed graphs with specialized hardware acceleration.',
-    technologies: ['D3.js', 'Three.js'],
+    technologies: ['D3.js', 'Inter', 'Three.js'],
   },
   {
     id: 'proj3',
@@ -97,9 +98,9 @@ const certificates: Certificate[] = [
 ];
 
 const skills = [
-  "Rust", "TypeScript", "React", "Next.js", "WebAssembly", 
-  "Node.js", "PostgreSQL", "Docker", "Kubernetes", "AWS", 
-  "Three.js", "WebGL", "System Architecture", "CI/CD Pipelines"
+  "ReactJS", "Tailwind CSS", "TypeScript", "Next.js", "Web Architecture", 
+  "Node.js", "PostgreSQL", "Docker", "Git", "REST APIs", 
+  "HTML5", "CSS3", "JavaScript", "UI/UX Design"
 ];
 
 const App: React.FC = () => {
@@ -118,6 +119,9 @@ const App: React.FC = () => {
     <div className="relative min-h-screen w-full">
       <LoadingScreen isLoading={isLoading} />
       <CustomCursor />
+      
+      {/* Background Code - Global effect */}
+      <BackgroundCode />
 
       {/* Noise Overlay */}
       <div className="fixed inset-0 z-[100] opacity-[0.03] pointer-events-none bg-noise mix-blend-overlay"></div>
@@ -125,23 +129,23 @@ const App: React.FC = () => {
       <div className={`transition-opacity duration-1000 delay-200 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Spotlight />
 
-        <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+        <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0 relative z-20">
           <div className="lg:flex lg:justify-between lg:gap-4">
             
             {/* Left Column (Fixed) */}
-            <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 z-20">
-              <div>
+            <header className="relative lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 z-20">
+              <div className="relative z-30">
                 <h1 className="text-4xl font-bold tracking-tight text-textPrimary sm:text-5xl">
-                  Kaelen <span className="text-accent-teal">Vane</span>
+                  Anthony <span className="text-accent-teal">Alabado</span>
                 </h1>
                 <h2 className="mt-3 text-lg font-medium tracking-tight text-textPrimary sm:text-xl">
-                  Principal Systems Architect
+                  Front-End Web Developer
                 </h2>
-                <p className="mt-6 max-w-xs leading-relaxed text-textSecondary text-base">
-                  Engineering robust, high-fidelity digital infrastructure for the next generation of the web.
+                <p className="mt-6 max-w-sm leading-relaxed text-textSecondary text-base">
+                  I am a dedicated web developer focusing on front-end development specializing in ReactJS and Tailwind CSS. I am well-versed in web development architecture and have a thorough understanding of how to integrate front-end interfaces with back-end systems.
                 </p>
 
-                {/* Redesigned CTA Buttons - Refined sizes and spacing */}
+                {/* CTA Buttons */}
                 <div className="mt-8 flex gap-4 w-full max-w-[280px]">
                   <a 
                     href="#" 
@@ -160,22 +164,21 @@ const App: React.FC = () => {
                 <Navigation sections={sections} />
               </div>
 
-              <Socials />
+              <div className="relative z-30">
+                <Socials />
+              </div>
             </header>
 
             {/* Right Column (Scrollable) */}
             <main className="pt-24 lg:w-1/2 lg:py-24 z-20">
               
               <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
-                <div className="text-textSecondary text-base md:text-lg leading-relaxed space-y-4">
+                <div className="text-textSecondary text-sm md:text-base leading-relaxed space-y-4">
                   <p>
-                    Back in 2012, I started tinkering with primitive terminal scripts, which sparked a deep obsession with <b className="text-textPrimary font-medium">system-level design</b> and the intersection of aesthetic precision and mechanical efficiency.
+                    Hello! I’m <b className="text-textPrimary font-medium">Anthony Alabado</b>, a Front-End Web Developer with a strong passion for creating engaging and user-focused digital experiences. I hold a Bachelor’s degree in Information Technology, and my interest in web development began in high school, where I was first introduced to the world of building for the web. Since then, I’ve continued learning through online courses and self-driven projects.
                   </p>
                   <p>
-                    Today, my focus is on building hyper-performant web applications that bridge the gap between <b className="text-textPrimary font-medium">monolithic architecture</b> and fluid user interaction. I thrive at the edge of the stack, where data meets the eye.
-                  </p>
-                  <p>
-                    When I'm not auditing performance cycles, I'm usually exploring <b className="text-textPrimary font-medium">generative typography</b> or refining my personal collection of obsidian-based documentation tools.
+                    I specialize in crafting visually appealing interfaces backed by clean, maintainable code. <b className="text-textPrimary font-medium">Design thinking and code hygiene</b> are central to my workflow, allowing me to build well-structured, user-friendly experiences while continuously improving my skills and exploring new challenges.
                   </p>
                 </div>
               </section>
@@ -220,7 +223,7 @@ const App: React.FC = () => {
                 </p>
                 <p>
                   Designed in the void. Built with React.js & Tailwind. <br />
-                  © 2024 Kaelen Vane. All systems nominal.
+                  © 2024 Anthony Alabado. All systems nominal.
                 </p>
               </footer>
 

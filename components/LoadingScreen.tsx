@@ -7,7 +7,7 @@ interface LoadingScreenProps {
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
   const [progress, setProgress] = useState(0);
   const [displayText, setDisplayText] = useState("");
-  const targetText = "KAELEN VANE";
+  const targetText = "ANTHONY ALABADO";
   const [systemMsg, setSystemMsg] = useState("INITIALIZING...");
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
     return () => clearInterval(timer);
   }, []);
 
-  // Split the text to color the second word "VANE"
+  // Split the text to color the second word "ALABADO"
   const words = displayText.split(' ');
 
   return (
