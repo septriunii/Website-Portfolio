@@ -1,0 +1,5 @@
+{
+  "name": "Website Portfolio",
+  "description": "A high-fidelity dark mode portfolio featuring a spotlight effect, custom cursor, and responsive layout, built with React and Tailwind CSS.",
+  "requestFramePermissions": []
+}
