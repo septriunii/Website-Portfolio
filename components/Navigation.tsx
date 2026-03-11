@@ -9,29 +9,29 @@ const Navigation: React.FC<NavigationProps> = ({ sections }) => {
   const [activeSection, setActiveSection] = useState<string>(sections[0].id);
 
   useEffect(() => {
-    // We use a broader detection area to ensure sections are caught during fast scrolls
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        // Viewport margin: Top -20% (ignore header area), Bottom -45% (trigger when section enters upper half)
-        rootMargin: '-20% 0px -45% 0px', 
-        threshold: 0
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200; // Detection offset
+
+      // Find the section that is currently in view
+      // We iterate in reverse to find the "lowest" section that has passed the scroll threshold
+      const currentSection = [...sections].reverse().find((section) => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          return scrollPosition >= element.offsetTop;
+        }
+        return false;
+      });
+
+      if (currentSection && currentSection.id !== activeSection) {
+        setActiveSection(currentSection.id);
       }
-    );
+    };
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id);
-      if (element) observer.observe(element);
-    });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
 
-    return () => observer.disconnect();
-  }, [sections]);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sections, activeSection]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -44,10 +44,10 @@ const Navigation: React.FC<NavigationProps> = ({ sections }) => {
   };
 
   return (
-    <nav className="hidden lg:block mt-16">
+    <nav className="hidden lg:block mt-10">
       <ul className="w-max">
         {sections.map((section) => (
-          <li key={section.id} className="group flex items-center py-3">
+          <li key={section.id} className="group flex items-center py-2">
             <a
               href={`#${section.id}`}
               onClick={(e) => handleNavClick(e, section.id)}

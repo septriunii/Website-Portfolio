@@ -1,0 +1,6 @@
+Anthony Alabado - Resume
+Frontend Web Developer
+Email: anthonyalabado3712@gmail.com
+Skills: ReactJS, Tailwind CSS, TypeScript, JavaScript, Python, C++, REST APIs, UI/UX Design.
+Experience: Flux Foundry, Arclight Digital, Monolith Co.
+Education: Bachelor's degree in Information Technology.

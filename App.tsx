@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FileText, Mail, Atom, Wind, Github, Palette, Cpu, Code2, Terminal, Globe } from 'lucide-react';
 import Spotlight from './components/Spotlight';
 import BackgroundCode from './components/BackgroundCode';
 import CustomCursor from './components/CustomCursor';
@@ -10,7 +11,7 @@ import Socials from './components/Socials';
 import LoadingScreen from './components/LoadingScreen';
 import { Experience, Project, Section, Certificate } from './types';
 
-// Data definitions
+// Data definitions - Restored to original placeholders
 const sections: Section[] = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
@@ -25,7 +26,7 @@ const experiences: Experience[] = [
     year: '2021 — Present',
     title: 'Lead Systems Engineer',
     company: 'Flux Foundry',
-    description: 'Architected the core rendering engine for high-traffic real-time dashboards. Reduced latency by 40% through custom WASM implementations.',
+    description: 'Architected the core rendering engine for high-traffic real-time dashboards. Reduced latency by 40% through custom WASM implementations and optimized React reconciliation.',
     technologies: ['TypeScript', 'Rust', 'WebAssembly', 'React'],
   },
   {
@@ -33,7 +34,7 @@ const experiences: Experience[] = [
     year: '2018 — 2021',
     title: 'Senior UI Engineer',
     company: 'Arclight Digital',
-    description: 'Developed a design system used by over 50 internal products, focusing on accessibility and atomic CSS principles.',
+    description: 'Developed a comprehensive design system used by over 50 internal products, focusing on accessibility, performance, and atomic CSS principles.',
     technologies: ['Design Systems', 'Next.js', 'SCSS'],
   },
   {
@@ -41,7 +42,7 @@ const experiences: Experience[] = [
     year: '2016 — 2018',
     title: 'Frontend Developer',
     company: 'Monolith Co.',
-    description: 'Specialized in rapid prototyping and high-fidelity interaction design for Fortune 500 financial clients.',
+    description: 'Specialized in rapid prototyping and high-fidelity interaction design for Fortune 500 financial clients, utilizing GLSL for complex data visualizations.',
     technologies: ['JavaScript', 'GSAP', 'WebGL'],
   },
 ];
@@ -51,22 +52,29 @@ const projects: Project[] = [
     id: 'proj1',
     code: 'PRJ_01_OS',
     title: 'Obsidian Shell v2',
-    description: 'A headless terminal environment built for the browser, featuring customizable themes and plugin architecture.',
+    description: 'A headless terminal environment built for the browser, featuring customizable themes, plugin architecture, and integrated shell scripting support.',
     technologies: ['Vite', 'Xterm.js', 'Tailwind'],
   },
   {
     id: 'proj2',
     code: 'PRJ_02_GRPH',
     title: 'Spectra Graph',
-    description: 'Visualizing complex datasets through force-directed graphs with specialized hardware acceleration.',
+    description: 'Visualizing complex datasets through force-directed graphs with specialized hardware acceleration for thousands of concurrent nodes.',
     technologies: ['D3.js', 'Inter', 'Three.js'],
   },
   {
     id: 'proj3',
     code: 'PRJ_03_MSH',
     title: 'Neural Mesh',
-    description: 'Distributed computing visualization tool for monitoring node health across multi-region clusters.',
+    description: 'Distributed computing visualization tool for monitoring node health and traffic patterns across multi-region server clusters.',
     technologies: ['Golang', 'WebGL', 'Redis'],
+  },
+  {
+    id: 'proj4',
+    code: 'PRJ_04_SYNC',
+    title: 'Quantum Sync',
+    description: 'High-performance state synchronization library for distributed systems, ensuring eventual consistency with minimal overhead.',
+    technologies: ['TypeScript', 'WebSockets', 'Node.js'],
   },
 ];
 
@@ -80,37 +88,35 @@ const certificates: Certificate[] = [
   {
     id: 'cert2',
     year: '2022',
-    title: 'AWS Certified Solutions Architect',
+    title: 'AWS Solutions Architect',
     issuer: 'Amazon Web Services',
   },
   {
     id: 'cert3',
     year: '2021',
-    title: 'HashiCorp Certified: Terraform Associate',
-    issuer: 'HashiCorp',
+    title: 'Google Cloud Professional Developer',
+    issuer: 'Google Cloud',
   },
-  {
-    id: 'cert4',
-    year: '2020',
-    title: 'Professional Data Engineer',
-    issuer: 'Google Cloud Platform',
-  }
 ];
 
 const skills = [
-  "ReactJS", "Tailwind CSS", "TypeScript", "Next.js", "Web Architecture", 
-  "Node.js", "PostgreSQL", "Docker", "Git", "REST APIs", 
-  "HTML5", "CSS3", "JavaScript", "UI/UX Design"
+  { name: "ReactJS", icon: Atom },
+  { name: "Tailwind CSS", icon: Wind },
+  { name: "Git/Github", icon: Github },
+  { name: "UI/UX Design", icon: Palette },
+  { name: "C++", icon: Cpu },
+  { name: "Javascript", icon: Code2 },
+  { name: "Python", icon: Terminal },
+  { name: "REST APIs", icon: Globe },
 ];
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate initial loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2400); // 2.4 seconds to allow progress bar to complete visually
+    }, 2400); 
 
     return () => clearTimeout(timer);
   }, []);
@@ -119,8 +125,6 @@ const App: React.FC = () => {
     <div className="relative min-h-screen w-full">
       <LoadingScreen isLoading={isLoading} />
       <CustomCursor />
-      
-      {/* Background Code - Global effect */}
       <BackgroundCode />
 
       {/* Noise Overlay */}
@@ -133,34 +137,39 @@ const App: React.FC = () => {
           <div className="lg:flex lg:justify-between lg:gap-4">
             
             {/* Left Column (Fixed) */}
-            <header className="relative lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 z-20">
+            <header className="relative lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-16 z-20">
               <div className="relative z-30">
                 <h1 className="text-4xl font-bold tracking-tight text-textPrimary sm:text-5xl">
                   Anthony <span className="text-accent-teal">Alabado</span>
                 </h1>
                 <h2 className="mt-3 text-lg font-medium tracking-tight text-textPrimary sm:text-xl">
-                  Front-End Web Developer
+                  Frontend Web Developer
                 </h2>
-                <p className="mt-6 max-w-sm leading-relaxed text-textSecondary text-base">
-                  I am a dedicated web developer focusing on front-end development specializing in ReactJS and Tailwind CSS. I am well-versed in web development architecture and have a thorough understanding of how to integrate front-end interfaces with back-end systems.
+                <p className="mt-4 max-w-sm leading-relaxed text-textSecondary text-base">
+                  I’m a web developer focused on front-end development using ReactJS and Tailwind CSS, with a solid understanding of web architecture and front-end to back-end integration.
                 </p>
 
-                {/* CTA Buttons */}
-                <div className="mt-8 flex gap-4 w-full max-w-[280px]">
+                <div className="mt-5 flex flex-wrap gap-4">
                   <a 
-                    href="#" 
-                    className="flex-1 inline-flex items-center justify-center py-3 border border-accent-teal/40 text-accent-teal font-mono text-xs font-bold tracking-widest transition-all duration-300 hover:bg-accent-teal hover:text-obsidian hover:border-accent-teal"
+                    href="/resume.txt" 
+                    download="Anthony_Alabado_Resume.txt"
+                    className="group relative inline-flex items-center justify-center w-44 py-3 font-mono text-sm font-medium text-obsidian transition-all duration-200 bg-accent-teal rounded-md hover:bg-accent-teal/90 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:ring-offset-2 focus:ring-offset-obsidian"
                   >
-                    RESUME
+                    <span className="relative flex items-center gap-2">
+                      <FileText size={16} />
+                      Resume
+                    </span>
                   </a>
-                  <a 
-                    href="#" 
-                    className="flex-1 inline-flex items-center justify-center py-3 border border-accent-teal/40 text-accent-teal font-mono text-xs font-bold tracking-widest transition-all duration-300 hover:bg-accent-teal hover:text-obsidian hover:border-accent-teal"
+                  <a href="mailto:anthonyalabado3712@gmail.com" 
+                    className="group relative inline-flex items-center justify-center w-44 py-3 font-mono text-sm font-medium text-textPrimary transition-all duration-200 border border-white/20 rounded-md hover:bg-white/5 hover:border-accent-teal/50 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:ring-offset-2 focus:ring-offset-obsidian"
                   >
-                    CONTACT ME
+                    <span className="relative flex items-center gap-2">
+                      <Mail size={16} />
+                      Contact Me
+                    </span>
                   </a>
                 </div>
-                
+
                 <Navigation sections={sections} />
               </div>
 
@@ -175,15 +184,16 @@ const App: React.FC = () => {
               <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
                 <div className="text-textSecondary text-sm md:text-base leading-relaxed space-y-4">
                   <p>
-                    Hello! I’m <b className="text-textPrimary font-medium">Anthony Alabado</b>, a Front-End Web Developer with a strong passion for creating engaging and user-focused digital experiences. I hold a Bachelor’s degree in Information Technology, and my interest in web development began in high school, where I was first introduced to the world of building for the web. Since then, I’ve continued learning through online courses and self-driven projects.
+                    Hello! I'm <b className="text-textPrimary">Anthony Alabado</b>, a <b className="text-textPrimary">Front-End Web Developer</b> passionate about creating exceptional digital experiences. I hold a <b className="text-textPrimary">Bachelor’s degree in Information Technology</b>, and my interest in web development began in high school when I was first introduced to it. Since then, I’ve continuously improved my skills through online courses and self-driven projects.
                   </p>
                   <p>
-                    I specialize in crafting visually appealing interfaces backed by clean, maintainable code. <b className="text-textPrimary font-medium">Design thinking and code hygiene</b> are central to my workflow, allowing me to build well-structured, user-friendly experiences while continuously improving my skills and exploring new challenges.
+                    I focus on building visually appealing interfaces while maintaining <b className="text-textPrimary">clean, organized, and maintainable code</b>. By applying design thinking principles and strong coding practices, I aim to create user-friendly and reliable web applications.
                   </p>
                 </div>
               </section>
 
               <section id="experience" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Experience</h2>
                 <div className="group/list">
                   {experiences.map((exp) => (
                     <ExperienceCard key={exp.id} data={exp} />
@@ -192,7 +202,8 @@ const App: React.FC = () => {
               </section>
 
               <section id="projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
-                <div className="group/list">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Projects</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 group/list">
                   {projects.map((proj) => (
                     <ProjectCard key={proj.id} data={proj} />
                   ))}
@@ -200,16 +211,19 @@ const App: React.FC = () => {
               </section>
 
               <section id="skills" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Skills">
-                 <div className="flex flex-wrap gap-3">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Skills</h2>
+                <div className="flex flex-wrap gap-3">
                    {skills.map((skill, index) => (
-                     <span key={index} className="font-mono text-sm text-accent-teal bg-accent-teal/10 px-4 py-2 rounded-md hover:bg-accent-teal/20 transition-colors cursor-default">
-                       {skill}
+                     <span key={index} className="flex items-center gap-2 font-mono text-[10px] md:text-xs text-accent-teal bg-accent-teal/10 px-3 py-1.5 rounded-md border border-accent-teal/20 hover:bg-accent-teal/20 transition-all duration-200 cursor-default group">
+                       <skill.icon size={14} className="transition-transform group-hover:scale-110" />
+                       {skill.name}
                      </span>
                    ))}
                  </div>
               </section>
 
               <section id="certificates" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Certificates">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Certificates</h2>
                 <div className="group/list">
                   {certificates.map((cert) => (
                     <CertificateCard key={cert.id} data={cert} />
@@ -219,11 +233,11 @@ const App: React.FC = () => {
 
               <footer className="pt-10 border-t border-white/5 text-sm text-textSecondary font-mono">
                 <p className="mb-2">
-                   / 010110 
+                   / {new Date().getFullYear()} / STABLE_BUILD
                 </p>
                 <p>
-                  Designed in the void. Built with React.js & Tailwind. <br />
-                  © 2024 Anthony Alabado. All systems nominal.
+                  Loosely designed in Figma and coded in VS Code. <br />
+                  Built with React.js & Tailwind CSS.
                 </p>
               </footer>
 
