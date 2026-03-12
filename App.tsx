@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, Mail, Atom, Wind, Github, Palette, Cpu, Code2, Terminal, Globe } from 'lucide-react';
+import { FileText, Mail, Atom, Wind, Github, Palette, Cpu, Code2, Terminal, ShieldCheck, Sparkles } from 'lucide-react';
 import Spotlight from './components/Spotlight';
 import BackgroundCode from './components/BackgroundCode';
 import CustomCursor from './components/CustomCursor';
@@ -100,14 +100,15 @@ const certificates: Certificate[] = [
 ];
 
 const skills = [
-  { name: "ReactJS", icon: Atom },
-  { name: "Tailwind CSS", icon: Wind },
-  { name: "Git/Github", icon: Github },
-  { name: "UI/UX Design", icon: Palette },
-  { name: "C++", icon: Cpu },
-  { name: "Javascript", icon: Code2 },
-  { name: "Python", icon: Terminal },
-  { name: "REST APIs", icon: Globe },
+  { name: "ReactJS", icon: Atom, category: "Frontend", strength: 5 },
+  { name: "Tailwind CSS", icon: Wind, category: "Frontend", strength: 5 },
+  { name: "Javascript", icon: Code2, category: "Language", strength: 5 },
+  { name: "Python", icon: Terminal, category: "Language", strength: 3 },
+  { name: "C++", icon: Cpu, category: "Language", strength: 4 },
+  { name: "Cybersecurity", icon: ShieldCheck, category: "Security", strength: 4 },
+  { name: "AI Integration", icon: Sparkles, category: "AI Tools", strength: 4 },
+  { name: "Git/Github", icon: Github, category: "Tools", strength: 5 },
+  { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4 },
 ];
 
 const App: React.FC = () => {
@@ -212,14 +213,60 @@ const App: React.FC = () => {
 
               <section id="skills" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Skills">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Skills</h2>
-                <div className="flex flex-wrap gap-3">
-                   {skills.map((skill, index) => (
-                     <span key={index} className="flex items-center gap-2 font-mono text-[10px] md:text-xs text-accent-teal bg-accent-teal/10 px-3 py-1.5 rounded-md border border-accent-teal/20 hover:bg-accent-teal/20 transition-all duration-200 cursor-default group">
-                       <skill.icon size={14} className="transition-transform group-hover:scale-110" />
-                       {skill.name}
-                     </span>
-                   ))}
-                 </div>
+                
+                <div className="border border-white/10 rounded-lg overflow-hidden bg-white/[0.01]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                    {skills.map((skill, index) => (
+                      <div 
+                        key={index}
+                        className={`group p-6 flex flex-col justify-between min-h-[140px] border-white/10 transition-all duration-500 hover:bg-accent-teal/[0.02]
+                          ${(index + 1) % 2 !== 0 ? 'sm:border-r' : 'sm:border-r-0'} 
+                          ${(index + 1) % 3 !== 0 ? 'md:border-r' : 'md:border-r-0'}
+                          ${index < skills.length - 1 ? 'border-b' : ''}
+                          ${index >= skills.length - 2 ? 'sm:border-b-0' : 'sm:border-b'}
+                          ${index >= skills.length - 3 ? 'md:border-b-0' : 'md:border-b'}
+                        `}
+                      >
+                        <div className="flex justify-between items-start mb-4">
+                          <div className="space-y-1">
+                            <span className="block font-mono text-[9px] uppercase tracking-widest text-accent-teal/50">
+                              {skill.category} // 0{index + 1}
+                            </span>
+                            <h3 className="text-base font-medium text-textPrimary group-hover:text-accent-teal transition-colors">
+                              {skill.name}
+                            </h3>
+                          </div>
+                          <div className="text-textSecondary/20 group-hover:text-accent-teal/40 transition-colors duration-500">
+                            <skill.icon size={24} strokeWidth={1} />
+                          </div>
+                        </div>
+
+                        <div className="flex items-end justify-between">
+                          <div className="flex gap-1">
+                            {[...Array(5)].map((_, i) => (
+                              <div 
+                                key={i}
+                                className={`w-1.5 h-3 rounded-full transition-all duration-500 delay-[${i * 100}ms]
+                                  ${i < skill.strength 
+                                    ? 'bg-accent-teal/40 group-hover:bg-accent-teal group-hover:shadow-[0_0_8px_rgba(45,212,191,0.4)]' 
+                                    : 'bg-white/5'
+                                  }`}
+                              />
+                            ))}
+                          </div>
+                          <span className="font-mono text-[8px] text-textSecondary/30 uppercase tracking-tighter">
+                            Status: Optimized
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-6 flex items-center gap-2 text-[10px] font-mono text-textSecondary/40 italic">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent-teal animate-pulse"></div>
+                  <span>System core technologies verified and active</span>
+                </div>
               </section>
 
               <section id="certificates" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Certificates">
