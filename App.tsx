@@ -23,27 +23,27 @@ const sections: Section[] = [
 const experiences: Experience[] = [
   {
     id: 'exp1',
-    year: '2021 — Present',
-    title: 'Lead Systems Engineer',
-    company: 'Flux Foundry',
-    description: 'Architected the core rendering engine for high-traffic real-time dashboards. Reduced latency by 40% through custom WASM implementations and optimized React reconciliation.',
-    technologies: ['TypeScript', 'Rust', 'WebAssembly', 'React'],
+    year: 'Present',
+    title: 'FRONTEND WEB DEVELOPER',
+    company: 'Self-Employed',
+    description: 'I develop responsive and user-friendly web interfaces using modern frontend technologies such as React.js and Tailwind CSS. I build and customize websites based on client requirements, focusing on performance, accessibility, and clean UI/UX design.',
+    technologies: ['React.js', 'Tailwind CSS', 'UI/UX Design', 'Responsive Design'],
   },
   {
     id: 'exp2',
-    year: '2018 — 2021',
-    title: 'Senior UI Engineer',
-    company: 'Arclight Digital',
-    description: 'Developed a comprehensive design system used by over 50 internal products, focusing on accessibility, performance, and atomic CSS principles.',
-    technologies: ['Design Systems', 'Next.js', 'SCSS'],
+    year: 'November 2023 – Present',
+    title: 'WAREHOUSE–MOTORPOOL STAFF',
+    company: '2M Construction and Enterprises',
+    description: 'I manage daily warehouse and motorpool operations by monitoring construction materials and equipment, processing requests, and preparing usage reports to ensure proper tracking and availability of company resources. I also provide basic office IT support, including troubleshooting, computer setup, and routine system maintenance.',
+    technologies: ['Operations Management', 'IT Support', 'Inventory Tracking', 'Troubleshooting'],
   },
   {
     id: 'exp3',
-    year: '2016 — 2018',
-    title: 'Frontend Developer',
-    company: 'Monolith Co.',
-    description: 'Specialized in rapid prototyping and high-fidelity interaction design for Fortune 500 financial clients, utilizing GLSL for complex data visualizations.',
-    technologies: ['JavaScript', 'GSAP', 'WebGL'],
+    year: 'January - April 2023',
+    title: 'IT SUPPORT INTERN',
+    company: 'Zamboanga Sibugay 2nd House of Representative District Office',
+    description: 'I helped the office by handling IT-related tasks, which included troubleshooting and performing basic computer maintenance. In addition, I served as a data entry clerk, responsible for inputting and organizing confidential information within the office’s database. Through these experiences, I acquired insights into office operations and the company\'s culture',
+    technologies: ['IT Support', 'Data Entry', 'Database Management', 'Computer Maintenance'],
   },
 ];
 
@@ -82,33 +82,41 @@ const certificates: Certificate[] = [
   {
     id: 'cert1',
     year: '2023',
-    title: 'Advanced Kubernetes Operator',
-    issuer: 'Cloud Native Computing Foundation',
+    title: 'BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY',
+    issuer: 'Dr. Aurelio Mendoza Memorial Colleges',
   },
   {
     id: 'cert2',
-    year: '2022',
-    title: 'AWS Solutions Architect',
-    issuer: 'Amazon Web Services',
+    year: '2024',
+    title: 'JavaScript Algorithms and Data Structures (v8)',
+    issuer: 'freeCodeCamp',
+    link: 'https://www.freecodecamp.org/certification/anthony-alabado/javascript-algorithms-and-data-structures-v8',
   },
   {
     id: 'cert3',
-    year: '2021',
-    title: 'Google Cloud Professional Developer',
-    issuer: 'Google Cloud',
+    year: '2024',
+    title: 'Responsive Web Design',
+    issuer: 'freeCodeCamp',
+    link: 'https://www.freecodecamp.org/certification/anthony-alabado/responsive-web-design',
+  },
+  {
+    id: 'cert4',
+    year: '2018',
+    title: 'COMPUTER SYSTEM SERVICING NCII',
+    issuer: 'Technical Education and Skills Development Authority',
   },
 ];
 
 const skills = [
-  { name: "ReactJS", icon: Atom, category: "Frontend", strength: 5 },
-  { name: "Tailwind CSS", icon: Wind, category: "Frontend", strength: 5 },
-  { name: "Javascript", icon: Code2, category: "Language", strength: 5 },
-  { name: "Python", icon: Terminal, category: "Language", strength: 3 },
-  { name: "C++", icon: Cpu, category: "Language", strength: 4 },
-  { name: "Cybersecurity", icon: ShieldCheck, category: "Security", strength: 4 },
-  { name: "AI Integration", icon: Sparkles, category: "AI Tools", strength: 4 },
-  { name: "Git/Github", icon: Github, category: "Tools", strength: 5 },
-  { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4 },
+  { name: "ReactJS", icon: Atom, category: "Frontend", strength: 5, tags: ["Hooks", "Context API", "SSR"] },
+  { name: "Tailwind CSS", icon: Wind, category: "Frontend", strength: 5, tags: ["Utility-first", "JIT", "Responsive"] },
+  { name: "Javascript", icon: Code2, category: "Language", strength: 5, tags: ["ES6+", "Async/Await", "DOM"] },
+  { name: "Python", icon: Terminal, category: "Language", strength: 3, tags: ["Automation", "Data Analysis", "Scripting"] },
+  { name: "C++", icon: Cpu, category: "Language", strength: 4, tags: ["OOP", "Memory Management", "STL"] },
+  { name: "Cybersecurity", icon: ShieldCheck, category: "Security", strength: 4, tags: ["Network Security", "Pen Testing", "Encryption"] },
+  { name: "AI Integration", icon: Sparkles, category: "AI Tools", strength: 4, tags: ["Prompt Engineering", "LLM APIs", "Automation"] },
+  { name: "Git/Github", icon: Github, category: "Tools", strength: 5, tags: ["Version Control", "CI/CD", "Collaboration"] },
+  { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Accessibility"] },
 ];
 
 const App: React.FC = () => {
@@ -147,7 +155,7 @@ const App: React.FC = () => {
                   Frontend Web Developer
                 </h2>
                 <p className="mt-4 max-w-sm leading-relaxed text-textSecondary text-base">
-                  I’m a web developer focused on front-end development using ReactJS and Tailwind CSS, with a solid understanding of web architecture and front-end to back-end integration.
+                  A dedicated web developer focusing on front-end development specializing in React.js and Tailwind CSS. I am also well-versed in web development architecture and have a thorough understanding of how to integrate front-end interfaces with back-end systems.
                 </p>
 
                 <div className="mt-5 flex flex-wrap gap-4">
@@ -241,22 +249,12 @@ const App: React.FC = () => {
                           </div>
                         </div>
 
-                        <div className="flex items-end justify-between">
-                          <div className="flex gap-1">
-                            {[...Array(5)].map((_, i) => (
-                              <div 
-                                key={i}
-                                className={`w-1.5 h-3 rounded-full transition-all duration-500 delay-[${i * 100}ms]
-                                  ${i < skill.strength 
-                                    ? 'bg-accent-teal/40 group-hover:bg-accent-teal group-hover:shadow-[0_0_8px_rgba(45,212,191,0.4)]' 
-                                    : 'bg-white/5'
-                                  }`}
-                              />
-                            ))}
-                          </div>
-                          <span className="font-mono text-[8px] text-textSecondary/30 uppercase tracking-tighter">
-                            Status: Optimized
-                          </span>
+                        <div className="flex flex-wrap gap-x-3 gap-y-1 opacity-30 group-hover:opacity-70 transition-opacity duration-500">
+                          {skill.tags?.map((tag, i) => (
+                            <span key={i} className="font-mono text-[8px] uppercase tracking-tighter text-textSecondary">
+                              {tag}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     ))}
