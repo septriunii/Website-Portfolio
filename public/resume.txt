@@ -30,9 +30,18 @@ January - April 2023
 I helped the office by handling IT-related tasks, which included troubleshooting and performing basic computer maintenance. In addition, I served as a data entry clerk, responsible for inputting and organizing confidential information within the office’s database. Through these experiences, I acquired insights into office operations and the company's culture.
 
 PROJECT
+SwiftCart
+An exquisite e-commerce website that showcases prowess in JavaScript functions. Featuring an add-to-cart system, purchasing checkout, and dynamic page linking. Built with ReactJS and TailwindCSS.
+
+AimRobotics
+A company brochure website showcasing adept skill in website design. Highlighting user-friendly navigation, engaging content, and an artfully designed layout. Built with ReactJS and TailwindCSS.
+
+ReelQuest
+A movie search database that harnesses the power of RESTful APIs to develop fully operational web applications. Offers an immersive experience exploring an extensive collection of films with real-time data. Built with ReactJS and TailwindCSS.
+
 MY WEBSITE PORTFOLIO 
 www.anthonyalabado.online 
-My website portfolio proudly displays my proficiency in React.js, Tailwind CSS, and my skill in UI/UX design. It serves as a platform to present my details and features 4 additional standout projects that exemplify my skills and creativity in action.
+My website portfolio proudly displays my proficiency in React.js, Tailwind CSS, and my skill in UI/UX design. It serves as a platform to present my details and features additional standout projects that exemplify my skills and creativity in action.
 
 SKILLS
 Front-End Development: HTML, CSS, React.js, and Tailwind CSS 
