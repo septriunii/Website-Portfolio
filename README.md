@@ -3,7 +3,7 @@
 A personal portfolio website showcasing my projects, skills, and experience.
 
 ## 🔗 Live Site
-[View Portfolio](https://yourusername.github.io/Website-Portfolio)
+[View Portfolio](https://septriunii.github.io/Website-Portfolio)
 
 ## 🛠️ Built With
 - TypeScript
@@ -19,4 +19,4 @@ A personal portfolio website showcasing my projects, skills, and experience.
 
 ## 📬 Contact
 - GitHub: [@septriunij](https://github.com/septriunij)
-- Email: your@email.com
+- Email: anthonyalabado@gmail.com
