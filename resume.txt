@@ -1,0 +1,54 @@
+ANTHONY ALABADO 
+Front-End Web Developer 
+Phone: +639709919006 
+Email: anthonyalabado3712@gmail.com 
+LinkedIn: linkedin.com/in/anthony-alabado
+
+ABOUT ME 
+A dedicated web developer focusing on front-end development specializing in React.js and Tailwind CSS. I am also well-versed in web development architecture and have a thorough understanding of how to integrate front-end interfaces with back-end systems. 
+
+EDUCATION
+BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY 
+Dr. Aurelio Mendoza Memorial Colleges 
+Ipil, Zamboanga Sibugay
+June 2023
+
+EXPERIENCE
+FRONTEND WEB DEVELOPER 
+Self-Employed 
+Present
+I develop responsive and user-friendly web interfaces using modern frontend technologies such as React.js and Tailwind CSS. I build and customize websites based on client requirements, focusing on performance, accessibility, and clean UI/UX design.
+
+WAREHOUSE–MOTORPOOL STAFF
+2M Construction and Enterprises 
+November 2023 – Present
+I manage daily warehouse and motorpool operations by monitoring construction materials and equipment, processing requests, and preparing usage reports to ensure proper tracking and availability of company resources. I also provide basic office IT support, including troubleshooting, computer setup, and routine system maintenance. 
+
+IT SUPPORT INTERN 
+Zamboanga Sibugay 2nd House of Representative District Office
+January - April 2023
+I helped the office by handling IT-related tasks, which included troubleshooting and performing basic computer maintenance. In addition, I served as a data entry clerk, responsible for inputting and organizing confidential information within the office’s database. Through these experiences, I acquired insights into office operations and the company's culture.
+
+PROJECT
+SwiftCart
+An exquisite e-commerce website that showcases prowess in JavaScript functions. Featuring an add-to-cart system, purchasing checkout, and dynamic page linking. Built with ReactJS and TailwindCSS.
+
+AimRobotics
+A company brochure website showcasing adept skill in website design. Highlighting user-friendly navigation, engaging content, and an artfully designed layout. Built with ReactJS and TailwindCSS.
+
+ReelQuest
+A movie search database that harnesses the power of RESTful APIs to develop fully operational web applications. Offers an immersive experience exploring an extensive collection of films with real-time data. Built with ReactJS and TailwindCSS.
+
+MY WEBSITE PORTFOLIO 
+www.anthonyalabado.online 
+My website portfolio proudly displays my proficiency in React.js, Tailwind CSS, and my skill in UI/UX design. It serves as a platform to present my details and features additional standout projects that exemplify my skills and creativity in action.
+
+SKILLS
+Front-End Development: HTML, CSS, React.js, and Tailwind CSS 
+Integrational Skills: Git/GitHub, UI/UX Design, Visual Studio Code, and AI Tools 
+Programming Languages: C++, Python, and JavaScript 
+
+CERTIFICATE
+COMPUTER SYSTEM SERVICING NCII 
+Technical Education and Skills Development Authority 
+November 2018
