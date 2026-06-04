@@ -3,7 +3,7 @@
 A personal portfolio website showcasing my projects, skills, and experience.
 
 ## 🔗 Live Site
-[View Portfolio](https://septriunii.github.io/Website-Portfolio)
+[View Portfolio](https://anton-webdev.vercel.app/)
 
 ## 🛠️ Built With
 - TypeScript
