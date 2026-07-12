@@ -1,22 +1,20 @@
-# Anton's Web Portfolio
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-A personal portfolio website showcasing my projects, skills, and experience.
+# Run and deploy your AI Studio app
 
-## 🔗 Live Site
-[View Portfolio](https://anton-webdev.vercel.app/)
+This contains everything you need to run your app locally.
 
-## 🛠️ Built With
-- TypeScript
-- Vite
-- HTML / CSS
+View your app in AI Studio: https://ai.studio/apps/13b1d805-1904-4deb-a96a-f12b5211e156
 
-## ✨ Features
-- Responsive design for mobile and desktop
-- Smooth animations and transitions
-- Projects showcase section
-- About Me section
-- Contact form
+## Run Locally
 
-## 📬 Contact
-- GitHub: [@septriunij](https://github.com/septriunij)
-- Email: anthonyalabado@gmail.com
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
