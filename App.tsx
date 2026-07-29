@@ -7,6 +7,7 @@ import Navigation from './components/Navigation';
 import ExperienceCard from './components/ExperienceCard';
 import ProjectCard from './components/ProjectCard';
 import CertificateCard from './components/CertificateCard';
+import SkillCard from './components/SkillCard';
 import Socials from './components/Socials';
 import LoadingScreen from './components/LoadingScreen';
 import { Experience, Project, Section, Certificate } from './types';
@@ -54,8 +55,8 @@ const projects: Project[] = [
     title: 'SwiftCart',
     description: 'SwiftCart is an exquisite e-commerce website that showcases my prowess in JavaScript functions. With functioning features like an add-to-cart system, purchasing checkout, and dynamic page linking, it delivers a captivating browsing experience. Moreover, each restart surprises you with a fresh array of product displays, adding a touch of elegance to your shopping journey.',
     technologies: ['HTML', 'CSS', 'ReactJS', 'TailwindCSS'],
-    link: 'https://septriunii.github.io/proj1.swiftcart.io/',
-    image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Fseptriunii.github.io%2Fproj1.swiftcart.io%2F?w=1280',
+    link: 'https://swiftcart-io.vercel.app/',
+    image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Fswiftcart-io.vercel.app%2F?w=1280',
   },
   {
     id: 'proj2',
@@ -72,8 +73,8 @@ const projects: Project[] = [
     title: 'ReelQuest',
     description: 'ReelQuest is a movie search database that showcases my adeptness in harnessing the power of RESTful APIs to develop fully operational and dynamically engaging web applications. This skillful creation not only serves as a testament to my technical proficiency but also underscores my commitment to enhancing users\' entertainment journeys. By seamlessly integrating real-time data from APIs, ReelQuest offers an immersive experience, where users can explore an extensive collection of films.',
     technologies: ['HTML', 'CSS', 'ReactJS', 'TailwindCSS'],
-    link: 'https://septriunii.github.io/proj3.reelquest.io/',
-    image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Fseptriunii.github.io%2Fproj3.reelquest.io%2F?w=1280',
+    link: 'https://reelquest-cyan.vercel.app/',
+    image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Freelquest-cyan.vercel.app%2F?w=1280',
   },
 ];
 
@@ -113,7 +114,7 @@ const skills = [
   { name: "Python", icon: Terminal, category: "Language", strength: 3, tags: ["Automation", "Data Analysis", "Scripting"] },
   { name: "C++", icon: Cpu, category: "Language", strength: 4, tags: ["OOP", "Memory Management", "STL"] },
   { name: "Cybersecurity", icon: ShieldCheck, category: "Security", strength: 4, tags: ["Network Security", "Pen Testing", "Encryption"] },
-  { name: "AI Integration", icon: Sparkles, category: "AI Tools", strength: 4, tags: ["Prompt Engineering", "LLM APIs", "Automation"] },
+  { name: "Applied AI", icon: Sparkles, category: "AI Tools", strength: 4, tags: ["Prompt Engineering", "LLM APIs", "Automation"] },
   { name: "Git/Github", icon: Github, category: "Tools", strength: 5, tags: ["Version Control", "CI/CD", "Collaboration"] },
   { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Accessibility"] },
 ];
@@ -211,7 +212,7 @@ const App: React.FC = () => {
 
               <section id="projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Projects</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 group/list">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start group/list">
                   {projects.map((proj) => (
                     <ProjectCard key={proj.id} data={proj} />
                   ))}
@@ -224,38 +225,12 @@ const App: React.FC = () => {
                 <div className="border border-white/10 rounded-lg overflow-hidden bg-white/[0.01]">
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                     {skills.map((skill, index) => (
-                      <div 
+                      <SkillCard 
                         key={index}
-                        className={`group p-6 flex flex-col justify-between min-h-[140px] border-white/10 transition-all duration-500 hover:bg-accent-teal/[0.02]
-                          ${(index + 1) % 2 !== 0 ? 'sm:border-r' : 'sm:border-r-0'} 
-                          ${(index + 1) % 3 !== 0 ? 'md:border-r' : 'md:border-r-0'}
-                          ${index < skills.length - 1 ? 'border-b' : ''}
-                          ${index >= skills.length - 2 ? 'sm:border-b-0' : 'sm:border-b'}
-                          ${index >= skills.length - 3 ? 'md:border-b-0' : 'md:border-b'}
-                        `}
-                      >
-                        <div className="flex justify-between items-start mb-4">
-                          <div className="space-y-1">
-                            <span className="block font-mono text-[9px] uppercase tracking-widest text-accent-teal/50">
-                              {skill.category} // 0{index + 1}
-                            </span>
-                            <h3 className="text-base font-medium text-textPrimary group-hover:text-accent-teal transition-colors">
-                              {skill.name}
-                            </h3>
-                          </div>
-                          <div className="text-textSecondary/20 group-hover:text-accent-teal/40 transition-colors duration-500">
-                            <skill.icon size={24} strokeWidth={1} />
-                          </div>
-                        </div>
-
-                        <div className="flex flex-wrap gap-x-3 gap-y-1 opacity-30 group-hover:opacity-70 transition-opacity duration-500">
-                          {skill.tags?.map((tag, i) => (
-                            <span key={i} className="font-mono text-[8px] uppercase tracking-tighter text-textSecondary">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                        skill={skill}
+                        index={index}
+                        totalSkills={skills.length}
+                      />
                     ))}
                   </div>
                 </div>

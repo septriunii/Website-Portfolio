@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Project } from '../types';
 
 interface ProjectCardProps {
@@ -6,20 +6,31 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Check if description is long enough to trigger expansion
+  const isLong = data.description.length > 120;
+
+  const toggleExpand = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsExpanded((prev) => !prev);
+  };
+
   return (
-    <a 
-      href={data.link} 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="group relative flex flex-col p-5 rounded-lg transition-all duration-500 bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 hover:border-accent-teal/20 h-[320px] w-full overflow-hidden block"
-    >
-      {/* Compact Image Area */}
-      <div className="relative w-full h-36 border border-white/10 rounded-md bg-[#0a0a0a] flex items-center justify-center overflow-hidden mb-4 group-hover:border-accent-teal/30 transition-colors duration-500">
+    <div className={`group relative flex flex-col p-5 rounded-xl transition-all duration-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 hover:border-accent-teal/30 hover:shadow-lg hover:shadow-accent-teal/5 w-full overflow-hidden ${isExpanded ? 'md:col-span-2' : 'md:col-span-1'}`}>
+      {/* Compact Image Area - Links to project */}
+      <a 
+        href={data.link} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="relative w-full h-40 border border-white/10 rounded-lg bg-[#0a0a0a] flex items-center justify-center overflow-hidden mb-4 group-hover:border-accent-teal/40 transition-colors duration-500 block"
+      >
         {data.image ? (
           <img 
             src={data.image} 
             alt={data.title}
-            className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+            className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500"
             referrerPolicy="no-referrer"
           />
         ) : (
@@ -34,28 +45,49 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
             {data.code}
           </span>
         )}
-
-        {/* Description Overlay - Appears on Hover */}
-        <div className="absolute inset-0 bg-obsidian/95 p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center transform translate-y-4 group-hover:translate-y-0">
-          <p className="text-textSecondary text-xs leading-relaxed text-justify">
-            {data.description}
-          </p>
-        </div>
-      </div>
+      </a>
       
       {/* Content Area */}
-      <div className="flex flex-col flex-grow justify-center">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="font-medium text-textPrimary text-base group-hover:text-accent-teal transition-colors duration-300">
-            {data.title}
-          </h3>
-          <span className="text-textSecondary group-hover:text-accent-teal transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </span>
+      <div className="flex flex-col flex-grow justify-between">
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <a 
+              href={data.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-medium text-textPrimary text-base hover:text-accent-teal transition-colors duration-300"
+            >
+              {data.title}
+            </a>
+            <a 
+              href={data.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-textSecondary hover:text-accent-teal transition-all duration-300 hover:-translate-y-0.5 hover:translate-x-0.5 p-1"
+              title="Open project"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+
+          <div className="mb-4">
+            <p className={`text-textSecondary/80 text-xs leading-relaxed text-left transition-all ${!isExpanded ? 'line-clamp-3' : ''}`}>
+              {data.description}
+            </p>
+            {isLong && (
+              <button
+                type="button"
+                onClick={toggleExpand}
+                className="mt-1 font-mono text-[11px] text-accent-teal hover:underline focus:outline-none inline-flex items-center gap-1 font-medium cursor-pointer"
+              >
+                {isExpanded ? 'Show less ▲' : 'more...'}
+              </button>
+            )}
+          </div>
         </div>
 
         <div>
@@ -72,7 +104,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
           </ul>
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 

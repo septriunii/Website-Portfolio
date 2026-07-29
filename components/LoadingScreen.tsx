@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 interface LoadingScreenProps {
   isLoading: boolean;
@@ -9,6 +9,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
   const [displayText, setDisplayText] = useState("");
   const targetText = "ANTHONY ALABADO";
   const [systemMsg, setSystemMsg] = useState("INITIALIZING...");
+  const [shouldRender, setShouldRender] = useState(true);
+  const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
     const totalTime = 2200; // Animation duration in ms
@@ -28,7 +30,9 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
       "SYSTEM_READY"
     ];
 
-    const timer = setInterval(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+
+    timerRef.current = window.setInterval(() => {
       currentStep++;
       const ratio = currentStep / totalSteps;
       const newProgress = Math.min(Math.floor(ratio * 100), 100);
@@ -54,12 +58,26 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
       setSystemMsg(messages[msgIndex]);
 
       if (currentStep >= totalSteps) {
-        clearInterval(timer);
+        if (timerRef.current) clearInterval(timerRef.current);
       }
     }, intervalTime);
 
-    return () => clearInterval(timer);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, []);
+
+  // Handle unmounting after fade-out transition
+  useEffect(() => {
+    if (!isLoading) {
+      const timeout = setTimeout(() => {
+        setShouldRender(false);
+      }, 1000); // 1s matches transition duration
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoading]);
+
+  if (!shouldRender) return null;
 
   // Split the text to color the second word "ALABADO"
   const words = displayText.split(' ');
