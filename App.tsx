@@ -76,34 +76,59 @@ const projects: Project[] = [
     link: 'https://reelquest-cyan.vercel.app/',
     image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Freelquest-cyan.vercel.app%2F?w=1280',
   },
+  {
+    id: 'proj4',
+    code: 'UP_04_DEV',
+    title: 'Upcoming Project',
+    description: 'An upcoming web application focused on cybersecurity principles and modern front-end system architecture. Currently in active development and prototyping phase.',
+    technologies: ['React.js', 'TypeScript', 'TailwindCSS', 'Cybersecurity'],
+  },
 ];
 
 const certificates: Certificate[] = [
   {
     id: 'cert1',
-    year: '2023',
-    title: 'BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY',
-    issuer: 'Dr. Aurelio Mendoza Memorial Colleges',
+    year: 'Jul 2026',
+    title: 'Cybersecurity Fundamentals',
+    issuer: 'IBM',
+    description: 'Earned a digital credential demonstrating foundational knowledge in core cybersecurity principles, threat intelligence, cryptography, and defense mechanisms through IBM SkillsBuild.',
+    skills: ['Cybersecurity Fundamentals', 'Cyber Threat Intelligence (CTI)', 'Cryptography', 'Threat Groups', 'Social Engineering'],
   },
   {
     id: 'cert2',
-    year: '2024',
-    title: 'JavaScript Algorithms and Data Structures (v8)',
-    issuer: 'freeCodeCamp',
-    link: 'https://www.freecodecamp.org/certification/anthony-alabado/javascript-algorithms-and-data-structures-v8',
+    year: 'Dec 2024',
+    title: 'Introduction to Cybersecurity',
+    issuer: 'Cisco Networking Academy',
+    description: 'Successfully completed coursework covering foundational concepts in network security, identifying potential threats, and understanding core protection strategies.',
+    skills: ['Network Security', 'Threat Detection', 'Cyber Defense'],
   },
   {
     id: 'cert3',
-    year: '2024',
-    title: 'Responsive Web Design',
+    year: 'Jan 2024',
+    title: 'Legacy JavaScript Algorithms and Data Structures V8',
     issuer: 'freeCodeCamp',
-    link: 'https://www.freecodecamp.org/certification/anthony-alabado/responsive-web-design',
+    credentialId: 'anton-alabado-jaads',
+    description: 'Demonstrates proficiency in core JavaScript fundamentals, object-oriented programming, functional programming, and algorithmic data structures.',
+    skills: ['JavaScript', 'Data Structures', 'Algorithms', 'Problem Solving'],
+    link: 'https://www.freecodecamp.org/certification/anthony-alabado/javascript-algorithms-and-data-structures-v8',
   },
   {
     id: 'cert4',
-    year: '2018',
-    title: 'COMPUTER SYSTEM SERVICING NCII',
-    issuer: 'Technical Education and Skills Development Authority',
+    year: 'Jan 2024',
+    title: 'Legacy Responsive Web Design V8',
+    issuer: 'freeCodeCamp',
+    credentialId: 'anton-alabado-rwd',
+    description: 'Validates competence in building modern, screen-responsive web application layouts using structured HTML5 and standard CSS styling practices.',
+    skills: ['Responsive Web Design', 'HTML5', 'CSS3', 'Layout Frameworks'],
+    link: 'https://www.freecodecamp.org/certification/anthony-alabado/responsive-web-design',
+  },
+  {
+    id: 'cert5',
+    year: 'Nov 2018',
+    title: 'Computer System Servicing NCII',
+    issuer: 'TESDA (Technical Education and Skills Development Authority)',
+    description: 'National certification validating practical technical skills in assembling hardware, setting up computer systems, configuring networks, and conducting technical troubleshooting. (Expired Nov 2023)',
+    skills: ['Computer Networking', 'Technical Support', 'Hardware Maintenance', 'System Configuration'],
   },
 ];
 
@@ -148,14 +173,14 @@ const App: React.FC = () => {
             {/* Left Column (Fixed) */}
             <header className="relative lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-16 z-20">
               <div className="relative z-30">
-                <h1 className="text-4xl font-bold tracking-tight text-textPrimary sm:text-5xl">
+                <h1 className="text-4xl font-extrabold tracking-tight text-textPrimary sm:text-5xl">
                   Anthony <span className="text-accent-teal">Alabado</span>
                 </h1>
-                <h2 className="mt-3 text-lg font-medium tracking-tight text-textPrimary sm:text-xl">
-                  Frontend Web Developer
+                <h2 className="mt-3 text-lg font-medium tracking-tight italic text-textPrimary sm:text-xl">
+                  Front-end developer
                 </h2>
-                <p className="mt-4 max-w-sm leading-relaxed text-textSecondary text-base">
-                  A dedicated web developer focusing on front-end development specializing in React.js and Tailwind CSS. I am also well-versed in web development architecture and have a thorough understanding of how to integrate front-end interfaces with back-end systems.
+                <p className="mt-4 max-w-sm leading-relaxed text-textSecondary text-sm sm:text-[13.5px]">
+                  Dedicated front-end developer specializing in front-end development using React.js with an active focus on cybersecurity and secure system architecture. Skilled in connecting front-end systems with back-end architectures, while applying security principles and cyber defense practices to build secure, resilient software.
                 </p>
 
                 <div className="mt-5 flex flex-wrap gap-4">

@@ -23,6 +23,9 @@ export interface Certificate {
   title: string;
   issuer: string;
   year: string;
+  description?: string;
+  skills?: string[];
+  credentialId?: string;
   link?: string;
 }
 
