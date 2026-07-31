@@ -109,7 +109,6 @@ const certificates: Certificate[] = [
     year: 'Jan 2024',
     title: 'JavaScript Algorithms and Data Structures',
     issuer: 'freeCodeCamp',
-    credentialId: 'anton-alabado-jaads',
     description: 'Demonstrates proficiency in core JavaScript fundamentals, object-oriented programming, functional programming, and algorithmic data structures.',
     skills: ['JavaScript', 'Data Structures', 'Algorithms', 'Problem Solving'],
     link: 'https://www.freecodecamp.org/certification/anton-alabado/javascript-algorithms-and-data-structures-v8',
@@ -119,7 +118,6 @@ const certificates: Certificate[] = [
     year: 'Jan 2024',
     title: 'Responsive Web Design',
     issuer: 'freeCodeCamp',
-    credentialId: 'anton-alabado-rwd',
     description: 'Validates competence in building modern, screen-responsive web application layouts using structured HTML5 and standard CSS styling practices.',
     skills: ['Responsive Web Design', 'HTML5', 'CSS3', 'Layout Frameworks'],
     link: 'https://www.freecodecamp.org/certification/anton-alabado/responsive-web-design',
@@ -128,7 +126,7 @@ const certificates: Certificate[] = [
     id: 'cert5',
     year: 'Nov 2018',
     title: 'Computer System Servicing NCII',
-    issuer: 'TESDA (Technical Education and Skills Development Authority)',
+    issuer: 'TESDA',
     description: 'National certification validating practical technical skills in assembling hardware, setting up computer systems, configuring networks, and conducting technical troubleshooting. (Expired Nov 2023)',
     skills: ['Computer Networking', 'Technical Support', 'Hardware Maintenance', 'System Configuration'],
   },
@@ -282,7 +280,6 @@ const App: React.FC = () => {
                    / {new Date().getFullYear()} / STABLE_BUILD
                 </p>
                 <p>
-                  Loosely designed in Figma and coded in VS Code. <br />
                   Built with React.js & Tailwind CSS.
                 </p>
               </footer>
