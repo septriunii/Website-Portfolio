@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FileText, Mail, Atom, Wind, Github, Palette, Cpu, Code2, Terminal, ShieldCheck, Sparkles } from 'lucide-react';
 import Spotlight from './components/Spotlight';
+import CloudGridBackground from './components/CloudGridBackground';
 import BackgroundCode from './components/BackgroundCode';
 import CustomCursor from './components/CustomCursor';
 import Navigation from './components/Navigation';
@@ -159,6 +160,7 @@ const App: React.FC = () => {
     <div className="relative min-h-screen w-full">
       <LoadingScreen isLoading={isLoading} />
       <CustomCursor />
+      <CloudGridBackground />
       <BackgroundCode />
 
       {/* Noise Overlay */}
