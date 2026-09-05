@@ -61,12 +61,12 @@ const projects: Project[] = [
   },
   {
     id: 'proj2',
-    code: 'AR_02_CB',
-    title: 'AimRobotics',
-    description: 'AimRobotics is a company brochure website showcasing my adept skill in website design. Highlighting my skill in website design, this project demonstrates my expertise in creating digital experiences. Prioritizing user-friendly navigation, engaging content, and an artfully designed layout, it effectively shows my ability to build impactful and visually pleasing online platforms that enhance businesses\' digital presence.',
-    technologies: ['HTML', 'CSS', 'ReactJS', 'TailwindCSS'],
-    link: 'https://septriunii.github.io/proj2.aimrobotics.io/',
-    image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Fseptriunii.github.io%2Fproj2.aimrobotics.io%2F?w=1280',
+    code: 'CT_02_AI',
+    title: 'Code Trace Explainer',
+    description: 'Code Trace Explainer is an interactive code execution trace visualizer and natural language annotation engine. It empowers developers and students to step through algorithms line by line, inspect variable state mutations in real time, and build deep conceptual understanding with automated explanatory annotations and execution call stack tracing.',
+    technologies: ['ReactJS', 'TypeScript', 'TailwindCSS', 'Execution Trace', 'UI/UX'],
+    link: 'https://code-explainer-rust.vercel.app/',
+    image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Fcode-explainer-rust.vercel.app%2F?w=1280',
   },
   {
     id: 'proj3',
@@ -79,10 +79,12 @@ const projects: Project[] = [
   },
   {
     id: 'proj4',
-    code: 'UP_04_DEV',
-    title: 'Upcoming Project',
-    description: 'An upcoming web application focused on cybersecurity principles and modern front-end system architecture. Currently in active development and prototyping phase.',
-    technologies: ['React.js', 'TypeScript', 'TailwindCSS', 'Cybersecurity'],
+    code: 'SN_04_SEC',
+    title: 'Secure Notes',
+    description: 'Secure Notes is a privacy-first web application designed to demonstrate secure web development practices and defensive architecture. Built with salted password hashing via bcrypt, hardened session management with protected cookies, and strict role-based access control (RBAC) enforced on every request, it prevents unauthorized privilege escalation and protects sensitive user data.',
+    technologies: ['ReactJS', 'TailwindCSS', 'Cybersecurity', 'Bcrypt', 'RBAC'],
+    link: 'https://secure-notes-wine.vercel.app/',
+    image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Fsecure-notes-wine.vercel.app%2F?w=1280',
   },
 ];
 

@@ -7,6 +7,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   // Check if description is long enough to trigger expansion
   const isLong = data.description.length > 120;
@@ -19,10 +20,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
 
   const imageContent = (
     <div className="relative w-full h-40 border border-white/10 rounded-lg bg-[#0a0a0a] flex items-center justify-center overflow-hidden mb-4 group-hover:border-accent-teal/40 transition-colors duration-500">
-      {data.image ? (
+      {data.image && !imgError ? (
         <img 
           src={data.image} 
           alt={data.title}
+          onError={() => setImgError(true)}
           className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500"
           referrerPolicy="no-referrer"
         />
@@ -33,13 +35,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
         </div>
       )}
       
-      {!data.image && (
+      {(!data.image || imgError) && (
         <div className="relative z-10 flex flex-col items-center gap-1">
           <span className="font-mono text-xl font-bold text-accent-teal/60 tracking-wider group-hover:text-accent-teal transition-colors duration-500">
             {data.code}
           </span>
           <span className="font-mono text-[9px] uppercase tracking-widest text-textSecondary/60 bg-white/5 px-2 py-0.5 rounded border border-white/10">
-            In Development
+            {data.link ? 'Live Application' : 'In Development'}
           </span>
         </div>
       )}

@@ -33,11 +33,14 @@ PROJECT
 SwiftCart
 An exquisite e-commerce website that showcases prowess in JavaScript functions. Featuring an add-to-cart system, purchasing checkout, and dynamic page linking. Built with ReactJS and TailwindCSS.
 
-AimRobotics
-A company brochure website showcasing adept skill in website design. Highlighting user-friendly navigation, engaging content, and an artfully designed layout. Built with ReactJS and TailwindCSS.
+Code Trace Explainer
+An interactive code execution trace visualizer and natural language annotation engine. Allows developers to step through algorithmic execution line-by-line, observe live variable mutations, and inspect execution logic. Built with ReactJS, TypeScript, and TailwindCSS.
 
 ReelQuest
 A movie search database that harnesses the power of RESTful APIs to develop fully operational web applications. Offers an immersive experience exploring an extensive collection of films with real-time data. Built with ReactJS and TailwindCSS.
+
+Secure Notes
+A privacy-first web application designed to demonstrate secure web development practices and defensive architecture. Built with salted password hashing via bcrypt, hardened session management, and strict role-based access control (RBAC). Built with ReactJS and TailwindCSS.
 
 MY WEBSITE PORTFOLIO 
 www.anthonyalabado.online 
