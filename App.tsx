@@ -125,14 +125,6 @@ const certificates: Certificate[] = [
     skills: ['Responsive Web Design', 'HTML5', 'CSS3', 'Layout Frameworks'],
     link: 'https://www.freecodecamp.org/certification/anton-alabado/responsive-web-design',
   },
-  {
-    id: 'cert5',
-    year: 'Nov 2018',
-    title: 'Computer System Servicing NCII',
-    issuer: 'TESDA',
-    description: 'National certification validating practical technical skills in assembling hardware, setting up computer systems, configuring networks, and conducting technical troubleshooting. (Expired Nov 2023)',
-    skills: ['Computer Networking', 'Technical Support', 'Hardware Maintenance', 'System Configuration'],
-  },
 ];
 
 const skills = [

@@ -1,5 +1,6 @@
 {
   "name": "Anthony Alabado Portfolio",
   "description": "A high-fidelity dark mode portfolio featuring a spotlight effect, custom cursor, and responsive layout, built with React and Tailwind CSS.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

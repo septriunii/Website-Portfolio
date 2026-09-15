@@ -51,7 +51,8 @@ Front-End Development: HTML, CSS, React.js, and Tailwind CSS
 Integrational Skills: Git/GitHub, UI/UX Design, Visual Studio Code, and AI Tools 
 Programming Languages: C++, Python, and JavaScript 
 
-CERTIFICATE
-COMPUTER SYSTEM SERVICING NCII 
-Technical Education and Skills Development Authority 
-November 2018
+CERTIFICATES
+Cybersecurity Fundamentals - IBM (Jul 2026)
+Introduction to Cybersecurity - Cisco Networking Academy (Dec 2024)
+JavaScript Algorithms and Data Structures - freeCodeCamp (Jan 2024)
+Responsive Web Design - freeCodeCamp (Jan 2024)
