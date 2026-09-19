@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
   };
 
   const imageContent = (
-    <div className="relative w-full h-40 border border-white/10 rounded-lg bg-[#0a0a0a] flex items-center justify-center overflow-hidden mb-4 group-hover:border-accent-teal/40 transition-colors duration-500">
+    <div className="relative w-full h-36 border border-white/10 rounded-lg bg-[#0a0a0a] flex items-center justify-center overflow-hidden group-hover:border-accent-teal/40 transition-colors duration-500">
       {data.image && !imgError ? (
         <img 
           src={data.image} 
@@ -49,25 +49,34 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
   );
 
   return (
-    <div className={`group relative flex flex-col p-5 rounded-xl transition-all duration-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 hover:border-accent-teal/30 hover:shadow-lg hover:shadow-accent-teal/5 w-full overflow-hidden ${isExpanded ? 'md:col-span-2' : 'md:col-span-1'}`}>
-      {/* Compact Image Area */}
-      {data.link ? (
-        <a 
-          href={data.link} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="block"
-        >
-          {imageContent}
-        </a>
-      ) : (
-        imageContent
-      )}
+    <div className="group relative flex flex-col p-5 rounded-xl transition-colors duration-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 hover:border-accent-teal/30 hover:shadow-lg hover:shadow-accent-teal/5 w-full h-[420px] overflow-hidden">
+      {/* Animated Image Container that glides to top and collapses */}
+      <div 
+        className={`w-full overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] transform ${
+          isExpanded 
+            ? 'max-h-0 opacity-0 -translate-y-full mb-0 pointer-events-none scale-95' 
+            : 'max-h-48 opacity-100 translate-y-0 mb-3.5 scale-100'
+        }`}
+      >
+        {data.link ? (
+          <a 
+            href={data.link} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="block"
+            tabIndex={isExpanded ? -1 : 0}
+          >
+            {imageContent}
+          </a>
+        ) : (
+          imageContent
+        )}
+      </div>
       
-      {/* Content Area */}
-      <div className="flex flex-col flex-grow justify-between">
-        <div>
-          <div className="flex items-center justify-between mb-2 gap-2">
+      {/* Content Area - moves smoothly to top when image collapses */}
+      <div className="flex flex-col flex-grow justify-between min-h-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
+        <div className="flex flex-col min-h-0">
+          <div className="flex items-center justify-between mb-2 gap-2 flex-shrink-0">
             {data.link ? (
               <a 
                 href={data.link} 
@@ -105,15 +114,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
             )}
           </div>
 
-          <div className="mb-4">
-            <p className={`text-textSecondary/80 text-xs leading-relaxed text-left transition-all ${!isExpanded ? 'line-clamp-3' : ''}`}>
-              {data.description}
-            </p>
+          <div className="flex flex-col min-h-0">
+            <div 
+              className={`text-textSecondary/80 text-xs leading-relaxed transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                isExpanded 
+                  ? 'max-h-[220px] overflow-y-auto pr-1' 
+                  : 'max-h-[58px] overflow-hidden line-clamp-3'
+              }`}
+            >
+              <p>{data.description}</p>
+            </div>
             {isLong && (
               <button
                 type="button"
                 onClick={toggleExpand}
-                className="mt-1 font-mono text-[11px] text-accent-teal hover:underline focus:outline-none inline-flex items-center gap-1 font-medium cursor-pointer"
+                className="mt-1.5 font-mono text-[11px] text-accent-teal hover:underline focus:outline-none inline-flex items-center gap-1 font-medium cursor-pointer self-start transition-colors duration-200"
+                aria-expanded={isExpanded}
               >
                 {isExpanded ? 'Show less ▲' : 'more...'}
               </button>
@@ -121,8 +137,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
           </div>
         </div>
 
-        <div>
-          <p className="text-[9px] uppercase tracking-widest text-textSecondary/40 mb-2 font-mono font-semibold">Tech Stack</p>
+        <div className="flex-shrink-0 pt-2.5 mt-2 border-t border-white/5">
+          <p className="text-[9px] uppercase tracking-widest text-textSecondary/40 mb-1.5 font-mono font-semibold">Tech Stack</p>
           <ul className="flex flex-wrap gap-1.5">
             {data.technologies.map((tech) => (
               <li

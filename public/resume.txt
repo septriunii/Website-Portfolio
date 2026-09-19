@@ -47,9 +47,8 @@ www.anthonyalabado.online
 My website portfolio proudly displays my proficiency in React.js, Tailwind CSS, and my skill in UI/UX design. It serves as a platform to present my details and features additional standout projects that exemplify my skills and creativity in action.
 
 SKILLS
-Front-End Development: HTML, CSS, React.js, and Tailwind CSS 
-Integrational Skills: Git/GitHub, UI/UX Design, Visual Studio Code, and AI Tools 
-Programming Languages: C++, Python, and JavaScript 
+Core Skills: React.js, Cyber Security, Applied AI, and Git & GitHub
+Languages & Integrations: JavaScript, Python, C++, API & Data Integration, and UI/UX Design (Figma) 
 
 CERTIFICATES
 Cybersecurity Fundamentals - IBM (Jul 2026)

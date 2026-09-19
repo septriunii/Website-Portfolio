@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, Mail, Atom, Wind, Github, Palette, Cpu, Code2, Terminal, ShieldCheck, Sparkles } from 'lucide-react';
+import { FileText, Mail, Atom, Github, Palette, Cpu, Code2, Terminal, ShieldCheck, Sparkles, Database } from 'lucide-react';
 import Spotlight from './components/Spotlight';
 import CloudGridBackground from './components/CloudGridBackground';
 import BackgroundCode from './components/BackgroundCode';
@@ -129,14 +129,14 @@ const certificates: Certificate[] = [
 
 const skills = [
   { name: "ReactJS", icon: Atom, category: "Frontend", strength: 5, tags: ["Hooks", "Context API", "SSR"] },
-  { name: "Tailwind CSS", icon: Wind, category: "Frontend", strength: 5, tags: ["Utility-first", "JIT", "Responsive"] },
+  { name: "Cyber Security", icon: ShieldCheck, category: "Security", strength: 4, tags: ["Network Security", "Pen Testing", "Encryption"] },
+  { name: "Applied AI", icon: Sparkles, category: "AI Tools", strength: 4, tags: ["Prompt Engineering", "LLM APIs", "Automation"] },
+  { name: "Git and GitHub", icon: Github, category: "Tools", strength: 5, tags: ["Version Control", "CI/CD", "Collaboration"] },
   { name: "Javascript", icon: Code2, category: "Language", strength: 5, tags: ["ES6+", "Async/Await", "DOM"] },
   { name: "Python", icon: Terminal, category: "Language", strength: 3, tags: ["Automation", "Data Analysis", "Scripting"] },
   { name: "C++", icon: Cpu, category: "Language", strength: 4, tags: ["OOP", "Memory Management", "STL"] },
-  { name: "Cybersecurity", icon: ShieldCheck, category: "Security", strength: 4, tags: ["Network Security", "Pen Testing", "Encryption"] },
-  { name: "Applied AI", icon: Sparkles, category: "AI Tools", strength: 4, tags: ["Prompt Engineering", "LLM APIs", "Automation"] },
-  { name: "Git/Github", icon: Github, category: "Tools", strength: 5, tags: ["Version Control", "CI/CD", "Collaboration"] },
   { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Accessibility"] },
+  { name: "API & Data Integration", icon: Database, category: "Backend Integration", strength: 5, tags: ["REST APIS", "AXIOS / FETCH", "ASYNC DATA", "JSON / ERRORS"] },
 ];
 
 const App: React.FC = () => {

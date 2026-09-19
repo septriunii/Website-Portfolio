@@ -126,7 +126,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
       <div className="flex justify-between items-start gap-1.5 relative z-10">
         <div className="space-y-1 min-w-0 flex-1">
           <span className="block font-mono text-[9px] uppercase tracking-wider text-accent-teal/60 group-hover:text-accent-teal transition-colors truncate">
-            {displayCategory} // 0{index + 1}
+            {displayCategory} // {index + 1 < 10 ? '0' : ''}{index + 1}
           </span>
           <h3 className="text-xs sm:text-[13px] lg:text-sm font-bold font-mono tracking-tighter text-textPrimary group-hover:text-accent-teal transition-colors whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-0.5">
             <span className="truncate">{displayName}</span>
@@ -140,7 +140,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-x-2 gap-y-1 opacity-50 group-hover:opacity-100 transition-opacity duration-300 relative z-10 overflow-hidden max-h-[30px]">
+      <div className="flex flex-wrap gap-x-2 gap-y-1 opacity-50 group-hover:opacity-100 transition-opacity duration-300 relative z-10 overflow-hidden max-h-[34px]">
         {displayTags.map((tag, i) => (
           <span key={i} className="font-mono text-[8px] uppercase tracking-tighter text-textSecondary group-hover:text-accent-teal/80 whitespace-nowrap">
             #{tag}
