@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'motion/react';
 import { LucideIcon } from 'lucide-react';
 
 export interface SkillItem {
@@ -108,16 +109,27 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
   }, []);
 
   const IconComponent = skill.icon;
+  const isLastRowMd = Math.floor(index / 3) === Math.floor((totalSkills - 1) / 3);
+  const isLastRowSm = Math.floor(index / 2) === Math.floor((totalSkills - 1) / 2);
+  const isLastRowMobile = index === totalSkills - 1;
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ 
+        duration: 0.75, 
+        delay: (index % 3) * 0.08, 
+        ease: [0.22, 1, 0.36, 1] 
+      }}
       onMouseEnter={startScramble}
-      className={`group relative p-3.5 sm:p-4 flex flex-col justify-between h-[130px] border-white/10 transition-colors duration-300 hover:bg-accent-teal/[0.04] cursor-default overflow-hidden select-none
+      className={`group relative p-3.5 sm:p-4 flex flex-col justify-between h-[130px] border-white/10 transition-colors duration-300 hover:bg-accent-teal/[0.04] cursor-default overflow-hidden select-none transform-gpu
         ${(index + 1) % 2 !== 0 ? 'sm:border-r' : 'sm:border-r-0'} 
         ${(index + 1) % 3 !== 0 ? 'md:border-r' : 'md:border-r-0'}
-        ${index < totalSkills - 1 ? 'border-b' : ''}
-        ${index >= totalSkills - 2 ? 'sm:border-b-0' : 'sm:border-b'}
-        ${index >= totalSkills - 3 ? 'md:border-b-0' : 'md:border-b'}
+        ${isLastRowMobile ? 'border-b-0' : 'border-b'}
+        ${isLastRowSm ? 'sm:border-b-0' : 'sm:border-b'}
+        ${isLastRowMd ? 'md:border-b-0' : 'md:border-b'}
       `}
     >
       {/* Subtle Matrix glow background effect on hover */}
@@ -147,7 +159,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
           </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

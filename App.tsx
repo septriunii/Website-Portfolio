@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, Mail, Atom, Github, Palette, Cpu, Code2, Terminal, ShieldCheck, Sparkles, Database } from 'lucide-react';
+import { motion } from 'motion/react';
+import { FileText, Mail, Atom, Github, Palette, Cpu, Terminal, ShieldCheck, Sparkles, Database, Network } from 'lucide-react';
 import Spotlight from './components/Spotlight';
 import CloudGridBackground from './components/CloudGridBackground';
 import BackgroundCode from './components/BackgroundCode';
@@ -132,11 +133,11 @@ const skills = [
   { name: "Cyber Security", icon: ShieldCheck, category: "Security", strength: 4, tags: ["Network Security", "Pen Testing", "Encryption"] },
   { name: "Applied AI", icon: Sparkles, category: "AI Tools", strength: 4, tags: ["Prompt Engineering", "LLM APIs", "Automation"] },
   { name: "Git and GitHub", icon: Github, category: "Tools", strength: 5, tags: ["Version Control", "CI/CD", "Collaboration"] },
-  { name: "Javascript", icon: Code2, category: "Language", strength: 5, tags: ["ES6+", "Async/Await", "DOM"] },
-  { name: "Python", icon: Terminal, category: "Language", strength: 3, tags: ["Automation", "Data Analysis", "Scripting"] },
   { name: "C++", icon: Cpu, category: "Language", strength: 4, tags: ["OOP", "Memory Management", "STL"] },
+  { name: "Python", icon: Terminal, category: "Language", strength: 3, tags: ["Automation", "Data Analysis", "Scripting"] },
   { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Accessibility"] },
-  { name: "API & Data Integration", icon: Database, category: "Backend Integration", strength: 5, tags: ["REST APIS", "AXIOS / FETCH", "ASYNC DATA", "JSON / ERRORS"] },
+  { name: "API & Data Integration", icon: Database, category: "Backend", strength: 5, tags: ["REST APIs", "Axios / Fetch", "Async Data", "JSON / Errors"] },
+  { name: "Networking", icon: Network, category: "Infrastructure", strength: 4, tags: ["TCP/IP", "DNS / DHCP", "Routing & Switching"] },
 ];
 
 const App: React.FC = () => {
@@ -160,7 +161,7 @@ const App: React.FC = () => {
       {/* Noise Overlay */}
       <div className="fixed inset-0 z-[100] opacity-[0.03] pointer-events-none bg-noise mix-blend-overlay"></div>
 
-      <div className={`transition-opacity duration-1000 delay-200 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+      <div className="overflow-x-clip">
         <Spotlight />
 
         <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0 relative z-20">
@@ -169,18 +170,42 @@ const App: React.FC = () => {
             {/* Left Column (Fixed) */}
             <header className="relative lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-16 z-20">
               <div className="relative z-30">
-                <h1 className="text-4xl font-extrabold tracking-tight text-textPrimary sm:text-5xl">
+                <motion.h1
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={isLoading ? { opacity: 0, y: 28 } : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-4xl font-extrabold tracking-tight text-textPrimary sm:text-5xl"
+                >
                   Anthony <span className="text-accent-teal">Alabado</span>
-                </h1>
-                <h2 className="mt-3 text-lg font-medium tracking-tight italic text-textPrimary sm:text-xl">
-                  Front-end developer
-                </h2>
-                <p className="mt-4 max-w-sm leading-relaxed text-textSecondary text-sm sm:text-[13.5px]">
-                  Dedicated front-end developer specializing in front-end development using React.js with an active focus on cybersecurity and secure system architecture. Skilled in connecting front-end systems with back-end architectures, while applying security principles and cyber defense practices to build secure, resilient software.
-                </p>
+                </motion.h1>
 
-                <div className="mt-5 flex flex-wrap gap-4">
-                  <a 
+                <motion.h2
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={isLoading ? { opacity: 0, y: 28 } : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                  className="mt-3 text-lg font-medium tracking-tight italic text-textPrimary sm:text-xl"
+                >
+                  Front-end developer
+                </motion.h2>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={isLoading ? { opacity: 0, y: 28 } : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                  className="mt-4 max-w-sm leading-relaxed text-textSecondary text-sm sm:text-[13.5px]"
+                >
+                  Dedicated front-end developer specializing in front-end development using React.js with an active focus on cybersecurity and secure system architecture. Skilled in connecting front-end systems with back-end architectures, while applying security principles and cyber defense practices to build secure, resilient software.
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={isLoading ? { opacity: 0, y: 28 } : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
+                  className="mt-5 flex flex-wrap gap-4"
+                >
+                  <motion.a 
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     href="/resume.txt" 
                     download="Anthony_Alabado_Resume.txt"
                     className="group relative inline-flex items-center justify-center w-44 py-3 font-mono text-sm font-medium text-obsidian transition-all duration-200 bg-accent-teal rounded-md hover:bg-accent-teal/90 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:ring-offset-2 focus:ring-offset-obsidian"
@@ -189,29 +214,50 @@ const App: React.FC = () => {
                       <FileText size={16} />
                       Resume
                     </span>
-                  </a>
-                  <a href="mailto:anthonyalabado3712@gmail.com" 
+                  </motion.a>
+                  <motion.a 
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    href="mailto:anthonyalabado3712@gmail.com" 
                     className="group relative inline-flex items-center justify-center w-44 py-3 font-mono text-sm font-medium text-textPrimary transition-all duration-200 border border-white/20 rounded-md hover:bg-white/5 hover:border-accent-teal/50 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:ring-offset-2 focus:ring-offset-obsidian"
                   >
                     <span className="relative flex items-center gap-2">
                       <Mail size={16} />
                       Contact Me
                     </span>
-                  </a>
-                </div>
+                  </motion.a>
+                </motion.div>
 
-                <Navigation sections={sections} />
+                <motion.div
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={isLoading ? { opacity: 0, y: 28 } : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, delay: 0.48, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <Navigation sections={sections} />
+                </motion.div>
               </div>
 
-              <div className="relative z-30">
+              <motion.div 
+                initial={{ opacity: 0, y: 28 }}
+                animate={isLoading ? { opacity: 0, y: 28 } : { opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.58, ease: [0.16, 1, 0.3, 1] }}
+                className="relative z-30"
+              >
                 <Socials />
-              </div>
+              </motion.div>
             </header>
 
             {/* Right Column (Scrollable) */}
             <main className="pt-24 lg:w-1/2 lg:py-24 z-20">
               
-              <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
+              <motion.section 
+                id="about" 
+                initial={{ opacity: 0, x: 28 }}
+                animate={isLoading ? { opacity: 0, x: 28 } : { opacity: 1, x: 0 }}
+                transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" 
+                aria-label="About me"
+              >
                 <div className="text-textSecondary text-sm md:text-base leading-relaxed space-y-4">
                   <p>
                     Hello! I'm <b className="text-textPrimary">Anthony Alabado</b>, a <b className="text-textPrimary">Front-End Web Developer</b> passionate about creating exceptional digital experiences. I hold a <b className="text-textPrimary">Bachelor’s degree in Information Technology</b>, and my interest in web development began in high school when I was first introduced to it. Since then, I’ve continuously improved my skills through online courses and self-driven projects.
@@ -220,27 +266,43 @@ const App: React.FC = () => {
                     I focus on building visually appealing interfaces while maintaining <b className="text-textPrimary">clean, organized, and maintainable code</b>. By applying design thinking principles and strong coding practices, I aim to create user-friendly and reliable web applications.
                   </p>
                 </div>
-              </section>
+              </motion.section>
 
-              <section id="experience" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
+              <section 
+                id="experience" 
+                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" 
+                aria-label="Work experience"
+              >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Experience</h2>
                 <div className="group/list">
-                  {experiences.map((exp) => (
-                    <ExperienceCard key={exp.id} data={exp} />
+                  {experiences.map((exp, index) => (
+                    <ExperienceCard key={exp.id} data={exp} index={index} isLoading={isLoading} />
                   ))}
                 </div>
               </section>
 
-              <section id="projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
+              <motion.section 
+                id="projects" 
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.08 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" 
+                aria-label="Selected projects"
+              >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start group/list">
                   {projects.map((proj) => (
                     <ProjectCard key={proj.id} data={proj} />
                   ))}
                 </div>
-              </section>
+              </motion.section>
 
-              <section id="skills" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Skills">
+              <section 
+                id="skills" 
+                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" 
+                aria-label="Skills"
+              >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Skills</h2>
                 
                 <div className="border border-white/10 rounded-lg overflow-hidden bg-white/[0.01]">
@@ -262,23 +324,33 @@ const App: React.FC = () => {
                 </div>
               </section>
 
-              <section id="certificates" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Certificates">
+              <section 
+                id="certificates" 
+                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" 
+                aria-label="Certificates"
+              >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Certificates</h2>
                 <div className="group/list">
-                  {certificates.map((cert) => (
-                    <CertificateCard key={cert.id} data={cert} />
+                  {certificates.map((cert, index) => (
+                    <CertificateCard key={cert.id} data={cert} index={index} />
                   ))}
                 </div>
               </section>
 
-              <footer className="pt-10 border-t border-white/5 text-sm text-textSecondary font-mono">
+              <motion.footer 
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="pt-10 border-t border-white/5 text-sm text-textSecondary font-mono"
+              >
                 <p className="mb-2">
                    / {new Date().getFullYear()} / STABLE_BUILD
                 </p>
                 <p>
                   Built with React.js & Tailwind CSS.
                 </p>
-              </footer>
+              </motion.footer>
 
             </main>
           </div>

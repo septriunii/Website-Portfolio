@@ -1,13 +1,25 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { Experience } from '../types';
 
 interface ExperienceCardProps {
   data: Experience;
+  index: number;
+  isLoading?: boolean;
 }
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({ data }) => {
+const ExperienceCard: React.FC<ExperienceCardProps> = ({ data, index, isLoading = false }) => {
   return (
-    <div className="group relative grid grid-cols-1 md:grid-cols-[100px_1fr] gap-4 p-6 rounded-lg transition-all duration-300 hover:bg-white/5 hover:border-white/5 hover:shadow-lg mb-4 border border-transparent">
+    <motion.div
+      initial={{ opacity: 0, x: 28 }}
+      animate={isLoading ? { opacity: 0, x: 28 } : { opacity: 1, x: 0 }}
+      transition={{ 
+        duration: 0.85, 
+        delay: 0.2 + index * 0.15, 
+        ease: [0.22, 1, 0.36, 1] 
+      }}
+      className="group relative grid grid-cols-1 md:grid-cols-[100px_1fr] gap-4 p-6 rounded-lg transition-colors duration-300 hover:bg-white/5 hover:border-white/5 hover:shadow-lg mb-4 border border-transparent"
+    >
       <header className="font-mono text-xs font-semibold uppercase tracking-wide text-textSecondary mt-1">
         {data.year}
       </header>
@@ -32,7 +44,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ data }) => {
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

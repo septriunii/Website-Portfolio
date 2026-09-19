@@ -1,16 +1,28 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { Certificate } from '../types';
 import { ShieldCheck, Award, ExternalLink, BadgeCheck } from 'lucide-react';
 
 interface CertificateCardProps {
   data: Certificate;
+  index: number;
 }
 
-const CertificateCard: React.FC<CertificateCardProps> = ({ data }) => {
+const CertificateCard: React.FC<CertificateCardProps> = ({ data, index }) => {
   const isExpired = data.description?.toLowerCase().includes('expired');
 
   const content = (
-    <div className="group relative p-5 sm:p-6 rounded-xl transition-all duration-300 border border-white/10 hover:border-accent-teal/40 bg-white/[0.02] hover:bg-accent-teal/[0.03] mb-5 overflow-hidden select-none shadow-sm hover:shadow-accent-teal/5">
+    <motion.div 
+      initial={{ opacity: 0, x: 24 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ 
+        duration: 0.65, 
+        delay: (index % 2) * 0.1, 
+        ease: [0.22, 1, 0.36, 1] 
+      }}
+      className="group relative p-5 sm:p-6 rounded-xl transition-colors duration-300 border border-white/10 hover:border-accent-teal/40 bg-white/[0.02] hover:bg-accent-teal/[0.03] mb-5 overflow-hidden select-none shadow-sm hover:shadow-accent-teal/5 transform-gpu"
+    >
       {/* High-tech Corner Accents */}
       <div className="absolute top-2 left-2 text-white/10 group-hover:text-accent-teal/30 font-mono text-[9px] transition-colors pointer-events-none">+</div>
       <div className="absolute top-2 right-2 text-white/10 group-hover:text-accent-teal/30 font-mono text-[9px] transition-colors pointer-events-none">+</div>
@@ -87,7 +99,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({ data }) => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 
   if (data.link) {

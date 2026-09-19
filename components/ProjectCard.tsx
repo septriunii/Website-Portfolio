@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { Project } from '../types';
 
 interface ProjectCardProps {
@@ -49,7 +50,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
   );
 
   return (
-    <div className="group relative flex flex-col p-5 rounded-xl transition-colors duration-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 hover:border-accent-teal/30 hover:shadow-lg hover:shadow-accent-teal/5 w-full h-[420px] overflow-hidden">
+    <motion.div 
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative flex flex-col p-5 rounded-xl transition-colors duration-300 bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 hover:border-accent-teal/30 hover:shadow-lg hover:shadow-accent-teal/5 w-full h-[420px] overflow-hidden"
+    >
       {/* Animated Image Container that glides to top and collapses */}
       <div 
         className={`w-full overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] transform ${
@@ -151,7 +158,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
           </ul>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
