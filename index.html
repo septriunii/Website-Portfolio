@@ -7,12 +7,12 @@
     <meta name="description" content="A high-fidelity dark mode portfolio featuring a spotlight effect, custom cursor, and responsive layout, built with React and Tailwind CSS." />
     <meta property="og:title" content="Anton Alabado | Frontend Web Developer" />
     <meta property="og:description" content="A high-fidelity dark mode portfolio featuring a spotlight effect, custom cursor, and responsive layout, built with React and Tailwind CSS." />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Crect x='5' y='5' width='54' height='54' rx='13' fill='none' stroke='%235eead4' stroke-width='5'/%3E%3Cpath fill='%235eead4' fill-rule='evenodd' d='M 29.5 16 H 34.5 L 49 48 H 42.5 L 39.5 40 H 24.5 L 21.5 48 H 15 Z M 32 22.5 L 37 34.5 H 27 Z'/%3E%3C/svg%3E" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=5" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5" />
-    <link rel="shortcut icon" href="/favicon.ico?v=5" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Crect x='5' y='5' width='54' height='54' rx='13' fill='%230a0a0a' stroke='%2342b883' stroke-width='5'/%3E%3Cpath fill='%2342b883' fill-rule='evenodd' d='M 29.5 16 H 34.5 L 49 48 H 42.5 L 39.5 40 H 24.5 L 21.5 48 H 15 Z M 32 22.5 L 37 34.5 H 27 Z'/%3E%3C/svg%3E" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=7" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=7" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=7" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=7" />
+    <link rel="shortcut icon" href="/favicon.ico?v=7" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -24,8 +24,8 @@
             colors: {
               obsidian: '#0a0a0a',
               surface: '#121212',
-              'accent-teal': '#5eead4',
-              'accent-glow': 'rgba(0, 240, 255, 0.15)',
+              'accent-teal': '#42b883',
+              'accent-glow': 'rgba(66, 184, 131, 0.18)',
               textPrimary: '#e2e8f0',
               textSecondary: '#94a3b8',
               borderCast: 'rgba(255, 255, 255, 0.05)',
@@ -37,13 +37,18 @@
             backgroundImage: {
               'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
               'faint-grid': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(255, 255, 255, 0.05)' stroke-width='1'/%3E%3C/svg%3E\")",
-              'grid-dots': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='0' cy='0' r='1.2' fill='rgba(94, 234, 212, 0.28)'/%3E%3C/svg%3E\")",
+              'grid-dots': "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='0' cy='0' r='1.2' fill='rgba(66, 184, 131, 0.28)'/%3E%3C/svg%3E\")",
             }
           }
         }
       }
     </script>
     <style>
+        :root {
+            --color-accent: #42b883;
+            --color-accent-rgb: 66, 184, 131;
+            --color-accent-glow: rgba(66, 184, 131, 0.18);
+        }
         body {
             background-color: #0a0a0a;
             cursor: none; /* Hide default cursor */

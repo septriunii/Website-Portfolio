@@ -7,7 +7,7 @@ interface LoadingScreenProps {
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
   const [progress, setProgress] = useState(0);
   const [displayText, setDisplayText] = useState("");
-  const targetText = "ANTHONY ALABADO";
+  const targetText = "ANTON ALABADO";
   const [systemMsg, setSystemMsg] = useState("INITIALIZING...");
   const [shouldRender, setShouldRender] = useState(true);
   const timerRef = useRef<number | null>(null);

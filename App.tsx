@@ -176,7 +176,7 @@ const App: React.FC = () => {
                   transition={{ duration: 0.55, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
                   className="text-4xl font-extrabold tracking-tight text-textPrimary sm:text-5xl"
                 >
-                  Anthony <span className="text-accent-teal">Alabado</span>
+                  Anton <span className="text-accent-teal">Alabado</span>
                 </motion.h1>
 
                 <motion.h2
@@ -207,7 +207,7 @@ const App: React.FC = () => {
                     whileHover={{ y: -2, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     href="/resume.txt" 
-                    download="Anthony_Alabado_Resume.txt"
+                    download="Anton_Alabado_Resume.txt"
                     className="group relative inline-flex items-center justify-center w-44 py-3 font-mono text-sm font-medium text-obsidian transition-all duration-200 bg-accent-teal rounded-md hover:bg-accent-teal/90 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:ring-offset-2 focus:ring-offset-obsidian"
                   >
                     <span className="relative flex items-center gap-2">
@@ -255,22 +255,22 @@ const App: React.FC = () => {
                 initial={{ opacity: 0, x: 28 }}
                 animate={isLoading ? { opacity: 0, x: 28 } : { opacity: 1, x: 0 }}
                 transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" 
+                className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="About me"
               >
                 <div className="text-textSecondary text-sm md:text-base leading-relaxed space-y-4">
                   <p>
-                    Hello! I'm <b className="text-textPrimary">Anthony Alabado</b>, a <b className="text-textPrimary">Front-End Web Developer</b> passionate about creating exceptional digital experiences. I hold a <b className="text-textPrimary">Bachelor’s degree in Information Technology</b>, and my interest in web development began in high school when I was first introduced to it. Since then, I’ve continuously improved my skills through online courses and self-driven projects.
+                    Hello! I'm <b className="text-textPrimary">Anton Alabado</b>, a <span className="inline px-1 py-[1px] rounded-[2px] bg-accent-teal text-obsidian font-semibold [box-decoration-break:clone]">Front-End Web Developer</span> passionate about creating exceptional digital experiences. I hold a Bachelor’s degree in <span className="inline px-1 py-[1px] rounded-[2px] bg-accent-teal text-obsidian font-bold [box-decoration-break:clone]">Information Technology</span>, and my interest in web development began in high school when I was first introduced to it. Since then, I’ve continuously improved my skills through online courses and self-driven projects.
                   </p>
                   <p>
-                    I focus on building visually appealing interfaces while maintaining <b className="text-textPrimary">clean, organized, and maintainable code</b>. By applying design thinking principles and strong coding practices, I aim to create user-friendly and reliable web applications.
+                    I focus on building visually appealing interfaces while maintaining <b className="text-textPrimary">clean, organized, and maintainable code</b>. By applying <span className="inline px-1 py-[1px] rounded-[2px] bg-accent-teal text-obsidian font-semibold [box-decoration-break:clone]">design thinking principles</span> and <span className="inline px-1 py-[1px] rounded-[2px] bg-accent-teal text-obsidian font-semibold [box-decoration-break:clone]">strong coding practices</span>, I aim to create user-friendly and reliable web applications.
                   </p>
                 </div>
               </motion.section>
 
               <section 
                 id="experience" 
-                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" 
+                className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="Work experience"
               >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Experience</h2>
@@ -287,7 +287,7 @@ const App: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.08 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" 
+                className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="Selected projects"
               >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Projects</h2>
@@ -300,7 +300,7 @@ const App: React.FC = () => {
 
               <section 
                 id="skills" 
-                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" 
+                className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="Skills"
               >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Skills</h2>
@@ -326,7 +326,7 @@ const App: React.FC = () => {
 
               <section 
                 id="certificates" 
-                className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" 
+                className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="Certificates"
               >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Certificates</h2>
