@@ -24,13 +24,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
   const imageContent = (
     <div className="relative w-full h-36 border border-white/10 rounded-lg bg-[#0a0a0a] flex items-center justify-center overflow-hidden group-hover:border-accent-teal/40 transition-colors duration-500">
       {data.image && !imgError ? (
-        <img 
-          src={data.image} 
-          alt={data.title}
-          onError={() => setImgError(true)}
-          className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500"
-          referrerPolicy="no-referrer"
-        />
+        <>
+          <img 
+            src={data.image} 
+            alt={data.title}
+            onError={() => setImgError(true)}
+            className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale brightness-90 group-hover:opacity-100 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 transition-[opacity,filter,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            referrerPolicy="no-referrer"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-accent-teal/10 pointer-events-none transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0"
+          />
+        </>
       ) : (
         <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500">
           <div className="absolute inset-0 bg-gradient-to-br from-accent-teal/30 via-transparent to-black"></div>

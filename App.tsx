@@ -59,7 +59,7 @@ const projects: Project[] = [
     technologies: ['ReactJS', 'TypeScript', 'TailwindCSS', 'D3.js', 'GeoJSON / PSGC'],
     link: 'https://mapahayag-ph.vercel.app/#/',
     githubLink: 'https://github.com/septriunii/mapahayag-project',
-    image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Fmapahayag-ph.vercel.app%2F%23%2F?w=1280',
+    image: '/assets/aistudio/image_ff588e62.png',
   },
   {
     id: 'proj2',
