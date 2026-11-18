@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ArrowDownRight, FileText, Mail, Atom, Github, Palette, Cpu, Terminal, ShieldCheck, Sparkles, Database, Network } from 'lucide-react';
+import { FileText, Mail, Atom, Github, Palette, Cpu, Terminal, ShieldCheck, Sparkles, Database, Network } from 'lucide-react';
 import Spotlight from './components/Spotlight';
 import CloudGridBackground from './components/CloudGridBackground';
 import BackgroundCode from './components/BackgroundCode';
@@ -15,9 +15,9 @@ import LoadingScreen from './components/LoadingScreen';
 import { Experience, Project, Section, Certificate } from './types';
 
 const sections: Section[] = [
-  { id: 'projects', label: 'Projects' },
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
   { id: 'certificates', label: 'Certificates' },
 ];
@@ -175,11 +175,11 @@ const App: React.FC = () => {
       <div className="overflow-x-clip">
         <Spotlight />
 
-        <div className="mx-auto min-h-screen max-w-screen-xl px-5 py-8 font-sans sm:px-8 md:px-12 md:py-12 lg:px-14 lg:py-0 relative z-20">
-          <div className="lg:grid lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-14 xl:gap-20">
+        <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0 relative z-20">
+          <div className="lg:flex lg:justify-between lg:gap-4">
             
             {/* Left Column (Fixed) */}
-            <header className="relative lg:sticky lg:top-0 lg:flex lg:self-start lg:min-h-[min(100svh,48rem)] lg:flex-col lg:justify-between lg:py-12 z-20">
+            <header className="relative lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-16 z-20">
               <div className="relative z-30">
                 <motion.h1
                   initial={{ opacity: 0, y: 28 }}
@@ -212,17 +212,31 @@ const App: React.FC = () => {
                   initial={{ opacity: 0, y: 28 }}
                   animate={isLoading ? { opacity: 0, y: 28 } : { opacity: 1, y: 0 }}
                   transition={{ duration: 0.55, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-                  className="profile-actions"
+                  className="mt-5 flex flex-wrap gap-4"
                 >
-                  <a href="#projects" className="profile-action profile-action-primary">
-                    View projects <ArrowDownRight size={16} aria-hidden="true" />
-                  </a>
-                  <a href="/resume.txt" download="Anton_Alabado_Resume.txt" className="profile-action">
-                    <FileText size={15} aria-hidden="true" /> Resume
-                  </a>
-                  <a href="mailto:anthonyalabado3712@gmail.com" className="profile-action">
-                    <Mail size={15} aria-hidden="true" /> Contact Me
-                  </a>
+                  <motion.a
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    href="/resume.txt"
+                    download="Anton_Alabado_Resume.txt"
+                    className="profile-action profile-action-primary"
+                  >
+                    <span className="relative flex items-center gap-2">
+                      <FileText size={16} />
+                      Resume
+                    </span>
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    href="mailto:anthonyalabado3712@gmail.com"
+                    className="profile-action"
+                  >
+                    <span className="relative flex items-center gap-2">
+                      <Mail size={16} />
+                      Contact Me
+                    </span>
+                  </motion.a>
                 </motion.div>
 
                 <motion.div
@@ -238,24 +252,14 @@ const App: React.FC = () => {
                 initial={{ opacity: 0, y: 28 }}
                 animate={isLoading ? { opacity: 0, y: 28 } : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.58, ease: [0.16, 1, 0.3, 1] }}
-                className="relative z-30 hidden lg:block"
+                className="relative z-30"
               >
                 <Socials />
               </motion.div>
             </header>
 
             {/* Right Column (Scrollable) */}
-            <main className="min-w-0 pt-7 md:pt-10 lg:py-12 z-20">
-              <section id="projects" aria-label="Selected projects" className="mb-14 scroll-mt-5 lg:mb-20 lg:scroll-mt-12">
-                <h2 className="sr-only">Projects</h2>
-                <ProjectCard data={projects[0]} featured />
-                <h3 className="project-list-title">More projects</h3>
-                <div className="project-list">
-                  {projects.slice(1).map((project) => (
-                    <ProjectCard key={project.id} data={project} />
-                  ))}
-                </div>
-              </section>
+            <main className="pt-24 lg:w-1/2 lg:py-24 z-20">
               
               <motion.section
                 id="about" 
@@ -265,7 +269,6 @@ const App: React.FC = () => {
                 className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="About me"
               >
-                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary mb-6">About</h2>
                 <div className="text-textSecondary text-sm md:text-base leading-relaxed space-y-4">
                   <p>
                     Hello! I'm <b className="text-textPrimary">Anton Alabado</b>, a <span className="inline px-1 py-[1px] rounded-[2px] bg-accent-teal text-obsidian font-semibold [box-decoration-break:clone]">Front-End Web Developer</span> passionate about creating exceptional digital experiences. I hold a Bachelor’s degree in <span className="inline px-1 py-[1px] rounded-[2px] bg-accent-teal text-obsidian font-bold [box-decoration-break:clone]">Information Technology</span>, and my interest in web development began in high school when I was first introduced to it. Since then, I’ve continuously improved my skills through online courses and self-driven projects.
@@ -288,6 +291,23 @@ const App: React.FC = () => {
                   ))}
                 </div>
               </section>
+
+              <motion.section
+                id="projects"
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.08 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20"
+                aria-label="Selected projects"
+              >
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Projects</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start group/list">
+                  {projects.map((proj) => (
+                    <ProjectCard key={proj.id} data={proj} />
+                  ))}
+                </div>
+              </motion.section>
 
               <section 
                 id="skills" 
@@ -335,7 +355,6 @@ const App: React.FC = () => {
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="pt-10 border-t border-white/5 text-sm text-textSecondary font-mono"
               >
-                <div className="mb-6 lg:hidden"><Socials /></div>
                 <p className="mb-2">
                    / {new Date().getFullYear()} / STABLE_BUILD
                 </p>
