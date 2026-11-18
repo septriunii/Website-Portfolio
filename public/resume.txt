@@ -2,7 +2,7 @@ ANTON ALABADO
 Front-End Web Developer 
 Phone: +639709919006 
 Email: anthonyalabado3712@gmail.com 
-LinkedIn: linkedin.com/in/anthony-alabado
+LinkedIn: https://www.linkedin.com/in/anton-alabado-ix/
 
 ABOUT ME 
 A dedicated web developer focusing on front-end development specializing in React.js and Tailwind CSS. I am also well-versed in web development architecture and have a thorough understanding of how to integrate front-end interfaces with back-end systems. 
@@ -19,31 +19,40 @@ Self-Employed
 Present
 I develop responsive and user-friendly web interfaces using modern frontend technologies such as React.js and Tailwind CSS. I build and customize websites based on client requirements, focusing on performance, accessibility, and clean UI/UX design.
 
-WAREHOUSE–MOTORPOOL STAFF
-2M Construction and Enterprises 
-November 2023 – Present
-I manage daily warehouse and motorpool operations by monitoring construction materials and equipment, processing requests, and preparing usage reports to ensure proper tracking and availability of company resources. I also provide basic office IT support, including troubleshooting, computer setup, and routine system maintenance. 
+WAREHOUSE STAFF
+Iron Peak Development Corporation
+May 2026 – Present
+I track construction materials and equipment requests, prepare usage reports, and keep office computers running through setup, troubleshooting, and routine maintenance.
+
+WAREHOUSE STAFF - EQUIPMENT SUPERVISOR
+2M Construction and Enterprises
+November 2023 – May 2026
+I supervised equipment tracking across the warehouse and motorpool, processed material requests, and reported on resource usage.
 
 IT SUPPORT INTERN 
 Zamboanga Sibugay 2nd House of Representative District Office
 January - April 2023
 I helped the office by handling IT-related tasks, which included troubleshooting and performing basic computer maintenance. In addition, I served as a data entry clerk, responsible for inputting and organizing confidential information within the office’s database. Through these experiences, I acquired insights into office operations and the company's culture.
 
-PROJECT
+PROJECTS
+MAPAhayag
+An interactive map for exploring Philippine census data. Building on tordecilla’s map, MAPAhayag adds a React interface, geographic profiles, and barangay-level navigation.
+https://mapahayag-ph.vercel.app/#/
+
 SwiftCart
-An exquisite e-commerce website that showcases prowess in JavaScript functions. Featuring an add-to-cart system, purchasing checkout, and dynamic page linking. Built with ReactJS and TailwindCSS.
+A React storefront for browsing products by category, adding items to a cart, and following a purchase through checkout.
 
 Code Trace Explainer
 An interactive code execution trace visualizer and natural language annotation engine. Allows developers to step through algorithmic execution line-by-line, observe live variable mutations, and inspect execution logic. Built with ReactJS, TypeScript, and TailwindCSS.
 
 ReelQuest
-A movie search database that harnesses the power of RESTful APIs to develop fully operational web applications. Offers an immersive experience exploring an extensive collection of films with real-time data. Built with ReactJS and TailwindCSS.
+Search the OMDb catalog, filter movies and series, and save titles to a watchlist. Built with React and Tailwind CSS.
 
 Secure Notes
 A privacy-first web application designed to demonstrate secure web development practices and defensive architecture. Built with salted password hashing via bcrypt, hardened session management, and strict role-based access control (RBAC). Built with ReactJS and TailwindCSS.
 
 MY WEBSITE PORTFOLIO 
-www.anthonyalabado.online 
+https://anton-webdev.vercel.app/
 My website portfolio proudly displays my proficiency in React.js, Tailwind CSS, and my skill in UI/UX design. It serves as a platform to present my details and features additional standout projects that exemplify my skills and creativity in action.
 
 SKILLS

@@ -26,9 +26,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ data, index, isLoading 
       <div className="z-10">
         <h3 className="font-medium text-textPrimary text-base mb-2 group-hover:text-accent-teal transition-colors">
           {data.title} • {data.company}
-          <span className="inline-block transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 ml-1">
-            ↗
-          </span>
         </h3>
         <p className="text-textSecondary text-sm leading-relaxed mb-4">
           {data.description}

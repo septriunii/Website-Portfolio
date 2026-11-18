@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { FileText, Mail, Atom, Github, Palette, Cpu, Terminal, ShieldCheck, Sparkles, Database, Network } from 'lucide-react';
+import { ArrowDownRight, FileText, Mail, Atom, Github, Palette, Cpu, Terminal, ShieldCheck, Sparkles, Database, Network } from 'lucide-react';
 import Spotlight from './components/Spotlight';
 import CloudGridBackground from './components/CloudGridBackground';
 import BackgroundCode from './components/BackgroundCode';
@@ -14,22 +14,29 @@ import Socials from './components/Socials';
 import LoadingScreen from './components/LoadingScreen';
 import { Experience, Project, Section, Certificate } from './types';
 
-// Data definitions - Restored to original placeholders
 const sections: Section[] = [
+  { id: 'projects', label: 'Projects' },
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
   { id: 'certificates', label: 'Certificates' },
 ];
 
 const experiences: Experience[] = [
   {
+    id: 'freelance',
+    year: 'Present',
+    title: 'Front-end Web Developer',
+    company: 'Self-employed',
+    description: 'I build and customize responsive React interfaces for clients, translating their requirements into accessible layouts with Tailwind CSS.',
+    technologies: ['React', 'Tailwind CSS', 'Responsive Design'],
+  },
+  {
     id: 'exp1',
     year: 'May 2026 – Present',
     title: 'Warehouse Staff',
     company: 'Iron Peak Development Corporation',
-    description: 'I manage daily warehouse and motorpool operations by monitoring construction materials and equipment, processing requests, and preparing usage reports to ensure proper tracking and availability of company resources. I also provide basic office IT support, including troubleshooting, computer setup, and routine system maintenance.',
+    description: 'I track construction materials and equipment requests, prepare usage reports, and keep office computers running through setup, troubleshooting, and routine maintenance.',
     technologies: ['Reporting & Analysis', 'Management', 'IT Support', 'System Maintenance'],
   },
   {
@@ -37,7 +44,7 @@ const experiences: Experience[] = [
     year: 'Nov 2023 – May 2026',
     title: 'Warehouse Staff - Equipment Supervisor',
     company: '2M Construction and Enterprises',
-    description: 'I manage daily warehouse and motorpool operations by monitoring construction materials and equipment, processing requests, and preparing usage reports to ensure proper tracking and availability of company resources. I also provide basic office IT support, including troubleshooting, computer setup, and routine system maintenance.',
+    description: 'I supervised equipment tracking across the warehouse and motorpool, processed material requests, and reported on resource usage.',
     technologies: ['Technical Support', 'Accounting', 'Operations Management', 'Inventory Tracking'],
   },
   {
@@ -55,37 +62,38 @@ const projects: Project[] = [
     id: 'proj1',
     code: 'MP_01_GEO',
     title: 'MAPAhayag',
-    description: 'MAPAhayag is an interactive Philippine geospatial data explorer and thematic choropleth mapping platform. It visualizes official Philippine Standard Geographic Code (PSGC) administrative divisions, regional groupings, and 2024 POPCEN census population demographics with seamless multi-level drill-downs from national down to provincial and municipal resolutions.',
-    technologies: ['ReactJS', 'TypeScript', 'TailwindCSS', 'D3.js', 'GeoJSON / PSGC'],
+    description: 'Explore Philippine census data on an interactive map, from the national view down to individual barangays where boundary data is available.',
+    contribution: 'Building on tordecilla’s open-source map, MAPAhayag adds a React interface, geographic profiles, and barangay-level navigation.',
+    technologies: ['React', 'TypeScript', 'D3.js', 'GeoJSON / PSGC'],
     link: 'https://mapahayag-ph.vercel.app/#/',
     githubLink: 'https://github.com/septriunii/mapahayag-project',
-    image: '/assets/aistudio/image_ff588e62.png',
+    image: '/assets/projects/mapahayag.webp',
   },
   {
     id: 'proj2',
     code: 'SC_02_EC',
     title: 'SwiftCart',
-    description: 'SwiftCart is an exquisite e-commerce website that showcases my prowess in JavaScript functions. With functioning features like an add-to-cart system, purchasing checkout, and dynamic page linking, it delivers a captivating browsing experience. Moreover, each restart surprises you with a fresh array of product displays, adding a touch of elegance to your shopping journey.',
+    description: 'Browse products by category, add items to a cart, and follow a purchase through checkout in this React storefront.',
     technologies: ['HTML', 'CSS', 'ReactJS', 'TailwindCSS'],
     link: 'https://swiftcart-io.vercel.app/',
     githubLink: 'https://github.com/septriunii/swiftcart.io',
-    image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Fswiftcart-io.vercel.app%2F?w=1280',
+    image: '/assets/projects/swiftcart.webp',
   },
   {
     id: 'proj3',
     code: 'RQ_03_MD',
     title: 'ReelQuest',
-    description: 'ReelQuest is a movie search database that showcases my adeptness in harnessing the power of RESTful APIs to develop fully operational and dynamically engaging web applications. This skillful creation not only serves as a testament to my technical proficiency but also underscores my commitment to enhancing users\' entertainment journeys. By seamlessly integrating real-time data from APIs, ReelQuest offers an immersive experience, where users can explore an extensive collection of films.',
+    description: 'Search the OMDb catalog for movies and series, filter the results, and save titles to a watchlist.',
     technologies: ['HTML', 'CSS', 'ReactJS', 'TailwindCSS'],
     link: 'https://reelquest-cyan.vercel.app/',
     githubLink: 'https://github.com/septriunii/reelQuest',
-    image: 'https://s0.wp.com/mshots/v1/https%3A%2F%2Freelquest-cyan.vercel.app%2F?w=1280',
+    image: '/assets/projects/reelquest.webp',
   },
   {
     id: 'proj4',
     code: 'QT_04_FIN',
     title: 'Quant Trading System',
-    description: 'Quant Trading System is a quantitative algorithmic trading engine and financial backtesting pipeline designed for systematic market strategy execution. It features automated market data ingestion, quantitative indicator calculation, signal generation, risk-managed position sizing, and historical backtesting performance analysis.',
+    description: 'Test trading strategies against historical market data and inspect how signals, position sizing, and risk rules affect performance.',
     technologies: ['Python', 'Quantitative Finance', 'Backtesting', 'Algorithmic Trading', 'Data Analysis'],
     githubLink: 'https://github.com/septriunii/quant-trading-system',
     image: '/assets/aistudio/Screenshot_2026-11-10_150549_975fc01b.png',
@@ -167,11 +175,11 @@ const App: React.FC = () => {
       <div className="overflow-x-clip">
         <Spotlight />
 
-        <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0 relative z-20">
-          <div className="lg:flex lg:justify-between lg:gap-4">
+        <div className="mx-auto min-h-screen max-w-screen-xl px-5 py-8 font-sans sm:px-8 md:px-12 md:py-12 lg:px-14 lg:py-0 relative z-20">
+          <div className="lg:grid lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-14 xl:gap-20">
             
             {/* Left Column (Fixed) */}
-            <header className="relative lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-16 z-20">
+            <header className="relative lg:sticky lg:top-0 lg:flex lg:self-start lg:min-h-[min(100svh,48rem)] lg:flex-col lg:justify-between lg:py-12 z-20">
               <div className="relative z-30">
                 <motion.h1
                   initial={{ opacity: 0, y: 28 }}
@@ -204,31 +212,17 @@ const App: React.FC = () => {
                   initial={{ opacity: 0, y: 28 }}
                   animate={isLoading ? { opacity: 0, y: 28 } : { opacity: 1, y: 0 }}
                   transition={{ duration: 0.55, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-5 flex flex-wrap gap-4"
+                  className="profile-actions"
                 >
-                  <motion.a 
-                    whileHover={{ y: -2, scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    href="/resume.txt" 
-                    download="Anton_Alabado_Resume.txt"
-                    className="group relative inline-flex items-center justify-center w-44 py-3 font-mono text-sm font-medium text-obsidian transition-all duration-200 bg-accent-teal rounded-md hover:bg-accent-teal/90 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:ring-offset-2 focus:ring-offset-obsidian"
-                  >
-                    <span className="relative flex items-center gap-2">
-                      <FileText size={16} />
-                      Resume
-                    </span>
-                  </motion.a>
-                  <motion.a 
-                    whileHover={{ y: -2, scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    href="mailto:anthonyalabado3712@gmail.com" 
-                    className="group relative inline-flex items-center justify-center w-44 py-3 font-mono text-sm font-medium text-textPrimary transition-all duration-200 border border-white/20 rounded-md hover:bg-white/5 hover:border-accent-teal/50 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:ring-offset-2 focus:ring-offset-obsidian"
-                  >
-                    <span className="relative flex items-center gap-2">
-                      <Mail size={16} />
-                      Contact Me
-                    </span>
-                  </motion.a>
+                  <a href="#projects" className="profile-action profile-action-primary">
+                    View projects <ArrowDownRight size={16} aria-hidden="true" />
+                  </a>
+                  <a href="/resume.txt" download="Anton_Alabado_Resume.txt" className="profile-action">
+                    <FileText size={15} aria-hidden="true" /> Resume
+                  </a>
+                  <a href="mailto:anthonyalabado3712@gmail.com" className="profile-action">
+                    <Mail size={15} aria-hidden="true" /> Contact Me
+                  </a>
                 </motion.div>
 
                 <motion.div
@@ -244,16 +238,26 @@ const App: React.FC = () => {
                 initial={{ opacity: 0, y: 28 }}
                 animate={isLoading ? { opacity: 0, y: 28 } : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.58, ease: [0.16, 1, 0.3, 1] }}
-                className="relative z-30"
+                className="relative z-30 hidden lg:block"
               >
                 <Socials />
               </motion.div>
             </header>
 
             {/* Right Column (Scrollable) */}
-            <main className="pt-24 lg:w-1/2 lg:py-24 z-20">
+            <main className="min-w-0 pt-7 md:pt-10 lg:py-12 z-20">
+              <section id="projects" aria-label="Selected projects" className="mb-14 scroll-mt-5 lg:mb-20 lg:scroll-mt-12">
+                <h2 className="sr-only">Projects</h2>
+                <ProjectCard data={projects[0]} featured />
+                <h3 className="project-list-title">More projects</h3>
+                <div className="project-list">
+                  {projects.slice(1).map((project) => (
+                    <ProjectCard key={project.id} data={project} />
+                  ))}
+                </div>
+              </section>
               
-              <motion.section 
+              <motion.section
                 id="about" 
                 initial={{ opacity: 0, x: 28 }}
                 animate={isLoading ? { opacity: 0, x: 28 } : { opacity: 1, x: 0 }}
@@ -261,6 +265,7 @@ const App: React.FC = () => {
                 className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="About me"
               >
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary mb-6">About</h2>
                 <div className="text-textSecondary text-sm md:text-base leading-relaxed space-y-4">
                   <p>
                     Hello! I'm <b className="text-textPrimary">Anton Alabado</b>, a <span className="inline px-1 py-[1px] rounded-[2px] bg-accent-teal text-obsidian font-semibold [box-decoration-break:clone]">Front-End Web Developer</span> passionate about creating exceptional digital experiences. I hold a Bachelor’s degree in <span className="inline px-1 py-[1px] rounded-[2px] bg-accent-teal text-obsidian font-bold [box-decoration-break:clone]">Information Technology</span>, and my interest in web development began in high school when I was first introduced to it. Since then, I’ve continuously improved my skills through online courses and self-driven projects.
@@ -283,23 +288,6 @@ const App: React.FC = () => {
                   ))}
                 </div>
               </section>
-
-              <motion.section 
-                id="projects" 
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.08 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
-                aria-label="Selected projects"
-              >
-                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Projects</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start group/list">
-                  {projects.map((proj) => (
-                    <ProjectCard key={proj.id} data={proj} />
-                  ))}
-                </div>
-              </motion.section>
 
               <section 
                 id="skills" 
@@ -347,6 +335,7 @@ const App: React.FC = () => {
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="pt-10 border-t border-white/5 text-sm text-textSecondary font-mono"
               >
+                <div className="mb-6 lg:hidden"><Socials /></div>
                 <p className="mb-2">
                    / {new Date().getFullYear()} / STABLE_BUILD
                 </p>
