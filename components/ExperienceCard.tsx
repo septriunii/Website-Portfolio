@@ -18,7 +18,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ data, index, isLoading 
         delay: 0.2 + index * 0.15, 
         ease: [0.22, 1, 0.36, 1] 
       }}
-      className="group relative grid grid-cols-1 md:grid-cols-[100px_1fr] gap-4 px-6 py-5 rounded-lg transition-colors duration-300 bg-[#101b18]/50 hover:bg-[#15251e] hover:border-accent-teal/40 hover:shadow-lg mb-3 border border-[#314c40]/60"
+      className="group relative grid grid-cols-1 md:grid-cols-[100px_1fr] gap-4 px-6 py-5 rounded-lg transition-colors duration-300 hover:bg-white/5 hover:border-white/5 hover:shadow-lg mb-3 border border-transparent"
     >
       <header className="font-mono text-xs font-semibold uppercase tracking-wide text-textSecondary mt-1">
         {data.year}
@@ -26,6 +26,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ data, index, isLoading 
       <div className="z-10">
         <h3 className="font-medium text-textPrimary text-base mb-2 group-hover:text-accent-teal transition-colors">
           {data.title} • {data.company}
+          <span className="inline-block transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 ml-1">
+            ↗
+          </span>
         </h3>
         <p className="text-textSecondary text-sm leading-relaxed mb-4">
           {data.description}
