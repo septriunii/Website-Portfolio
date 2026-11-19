@@ -97,8 +97,8 @@ const certificates: Certificate[] = [
     year: 'Jul 2026',
     title: 'Cybersecurity Fundamentals',
     issuer: 'IBM',
-    description: 'Earned a digital credential demonstrating foundational knowledge in core cybersecurity principles, threat intelligence, cryptography, and defense mechanisms through IBM SkillsBuild.',
-    skills: ['Cybersecurity Fundamentals', 'Cyber Threat Intelligence (CTI)', 'Cryptography', 'Threat Groups', 'Social Engineering'],
+    description: 'Covered threat intelligence, cryptography, and social engineering.',
+    platform: 'Credly',
     link: 'https://www.credly.com/badges/112f9239-1596-4f8f-b0d7-7930617f7edf/linked_in_profile',
   },
   {
@@ -106,8 +106,8 @@ const certificates: Certificate[] = [
     year: 'Dec 2024',
     title: 'Introduction to Cybersecurity',
     issuer: 'Cisco Networking Academy',
-    description: 'Successfully completed coursework covering foundational concepts in network security, identifying potential threats, and understanding core protection strategies.',
-    skills: ['Network Security', 'Threat Detection', 'Cyber Defense'],
+    description: 'Studied network security, threat detection, and cyber defense.',
+    platform: 'Credly',
     link: 'https://www.credly.com/badges/3c7b37db-8720-4439-82df-085d118bf183/linked_in_profile',
   },
   {
@@ -115,8 +115,8 @@ const certificates: Certificate[] = [
     year: 'Jan 2024',
     title: 'JavaScript Algorithms and Data Structures',
     issuer: 'freeCodeCamp',
-    description: 'Demonstrates proficiency in core JavaScript fundamentals, object-oriented programming, functional programming, and algorithmic data structures.',
-    skills: ['JavaScript', 'Data Structures', 'Algorithms', 'Problem Solving'],
+    description: 'Applied algorithms and data structures using functional and object-oriented JavaScript.',
+    platform: 'freeCodeCamp',
     link: 'https://www.freecodecamp.org/certification/anton-alabado/javascript-algorithms-and-data-structures-v8',
   },
   {
@@ -124,8 +124,8 @@ const certificates: Certificate[] = [
     year: 'Jan 2024',
     title: 'Responsive Web Design',
     issuer: 'freeCodeCamp',
-    description: 'Validates competence in building modern, screen-responsive web application layouts using structured HTML5 and standard CSS styling practices.',
-    skills: ['Responsive Web Design', 'HTML5', 'CSS3', 'Layout Frameworks'],
+    description: 'Built responsive page layouts with HTML and CSS.',
+    platform: 'freeCodeCamp',
     link: 'https://www.freecodecamp.org/certification/anton-alabado/responsive-web-design',
   },
 ];
@@ -331,12 +331,12 @@ const App: React.FC = () => {
                 className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="Certificates"
               >
-                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Certificates</h2>
-                <div className="group/list">
-                  {certificates.map((cert, index) => (
-                    <CertificateCard key={cert.id} data={cert} index={index} />
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary mb-3">Certificates</h2>
+                <ul className="divide-y divide-white/10 border-y border-white/10">
+                  {certificates.map((cert) => (
+                    <CertificateCard key={cert.id} data={cert} />
                   ))}
-                </div>
+                </ul>
               </section>
 
               <motion.footer 
