@@ -1,6 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" fill="#0a0a0a"/>
-  <rect x="5" y="5" width="54" height="54" rx="13" fill="#0a0a0a" stroke="#42b883" stroke-width="5"/>
-  <path fill="#42b883" fill-rule="evenodd" d="M 29.5 16 H 34.5 L 49 48 H 42.5 L 39.5 40 H 24.5 L 21.5 48 H 15 Z M 32 22.5 L 37 34.5 H 27 Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Anton Alabado</title>
+  <style>
+    path { fill: #33815a; }
+    @media (prefers-color-scheme: dark) {
+      path { fill: #76d3a0; }
+    }
+  </style>
+  <path fill="#33815a" fill-rule="evenodd" d="
+    M29 8 35 6 53 49
+    Q55 53.5 60 54 V57 H39 V54 L44 53 40 43 H20 L16 53 22 54 V57 H4 V54
+    Q9 53.5 11 49 Z
+    M22.5 37 H37.5 L30 18 Z
+  "/>
 </svg>
-
