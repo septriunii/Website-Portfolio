@@ -131,15 +131,15 @@ const certificates: Certificate[] = [
 ];
 
 const skills = [
-  { name: "ReactJS", icon: Atom, category: "Frontend", strength: 5, tags: ["Hooks", "Context API", "SSR"] },
-  { name: "Cyber Security", icon: ShieldCheck, category: "Security", strength: 4, tags: ["Network Security", "Pen Testing", "Encryption"] },
-  { name: "Applied AI", icon: Sparkles, category: "AI Tools", strength: 4, tags: ["Prompt Engineering", "LLM APIs", "Automation"] },
-  { name: "Git and GitHub", icon: Github, category: "Tools", strength: 5, tags: ["Version Control", "CI/CD", "Collaboration"] },
-  { name: "C++", icon: Cpu, category: "Language", strength: 4, tags: ["OOP", "Memory Management", "STL"] },
-  { name: "Python", icon: Terminal, category: "Language", strength: 3, tags: ["Automation", "Data Analysis", "Scripting"] },
-  { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Accessibility"] },
-  { name: "API & Data Integration", icon: Database, category: "Backend", strength: 5, tags: ["REST APIs", "Axios / Fetch", "Async Data", "JSON / Errors"] },
-  { name: "Networking", icon: Network, category: "Infrastructure", strength: 4, tags: ["TCP/IP", "DNS / DHCP", "Routing & Switching"] },
+  { name: "React", icon: Atom, category: "Frontend", tags: ["Hooks", "Context API", "SSR"] },
+  { name: "Cybersecurity", icon: ShieldCheck, category: "Security", tags: ["Network security", "Pen testing", "Encryption"] },
+  { name: "Applied AI", icon: Sparkles, category: "AI Tools", tags: ["Prompt engineering", "LLM APIs", "Automation"] },
+  { name: "Git and GitHub", icon: Github, category: "Tools", tags: ["Version control", "CI/CD", "Collaboration"] },
+  { name: "C++", icon: Cpu, category: "Language", tags: ["OOP", "Memory management", "STL"] },
+  { name: "Python", icon: Terminal, category: "Language", tags: ["Automation", "Data analysis", "Scripting"] },
+  { name: "UI/UX Design", icon: Palette, category: "Design", tags: ["Figma", "Prototyping", "Accessibility"] },
+  { name: "API & Data Integration", icon: Database, category: "Backend", tags: ["REST APIs", "Axios / Fetch", "Async data", "JSON / errors"] },
+  { name: "Networking", icon: Network, category: "Infrastructure", tags: ["TCP/IP", "DNS / DHCP", "Routing & switching"] },
 ];
 
 const App: React.FC = () => {
@@ -308,23 +308,11 @@ const App: React.FC = () => {
               >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary mb-3 lg:sr-only">Skills</h2>
                 
-                <div className="border border-white/10 rounded-lg overflow-hidden bg-white/[0.01]">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-                    {skills.map((skill, index) => (
-                      <SkillCard 
-                        key={index}
-                        skill={skill}
-                        index={index}
-                        totalSkills={skills.length}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-6 flex items-center gap-2 text-[10px] font-mono text-textSecondary/40 italic">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent-teal animate-pulse"></div>
-                  <span>System core technologies verified and active</span>
-                </div>
+                <ul className="skills-grid">
+                  {skills.map(skill => (
+                    <SkillCard key={skill.name} skill={skill} />
+                  ))}
+                </ul>
               </section>
 
               <section 
