@@ -260,6 +260,7 @@ const App: React.FC = () => {
                 className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="About me"
               >
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary mb-3">About</h2>
                 <div className="text-textSecondary text-sm md:text-base leading-relaxed space-y-4">
                   <p>
                     Hello! I'm <b className="text-textPrimary">Anton Alabado</b>, a <span className="inline px-1 py-[1px] rounded-[2px] bg-accent-teal text-obsidian font-semibold [box-decoration-break:clone]">Front-End Web Developer</span> passionate about creating exceptional digital experiences. I hold a Bachelor’s degree in <span className="inline px-1 py-[1px] rounded-[2px] bg-accent-teal text-obsidian font-bold [box-decoration-break:clone]">Information Technology</span>, and my interest in web development began in high school when I was first introduced to it. Since then, I’ve continuously improved my skills through online courses and self-driven projects.
@@ -275,7 +276,7 @@ const App: React.FC = () => {
                 className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="Work experience"
               >
-                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Experience</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary mb-3">Experience</h2>
                 <div className="group/list">
                   {experiences.map((exp, index) => (
                     <ExperienceCard key={exp.id} data={exp} index={index} isLoading={isLoading} />
@@ -292,7 +293,7 @@ const App: React.FC = () => {
                 className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20"
                 aria-label="Selected projects"
               >
-                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Projects</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary mb-3">Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start group/list">
                   {projects.map((proj) => (
                     <ProjectCard key={proj.id} data={proj} />
@@ -305,7 +306,7 @@ const App: React.FC = () => {
                 className="mb-12 scroll-mt-16 md:mb-16 lg:mb-20 lg:scroll-mt-20" 
                 aria-label="Skills"
               >
-                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary lg:sr-only mb-8">Skills</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary mb-3">Skills</h2>
                 
                 <div className="border border-white/10 rounded-lg overflow-hidden bg-white/[0.01]">
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
