@@ -43,8 +43,9 @@
     background: currentColor;
     transition: width .2s;
   }
-  .section-nav a:hover, .section-nav a[aria-current] { color: #85dfb4; }
-  .section-nav a:hover::before, .section-nav a[aria-current]::before { width: 4rem; }
+  .section-nav a:hover { color: #d7e7df; }
+  .section-nav a[aria-current] { color: #85dfb4; }
+  .section-nav a[aria-current]::before { width: 4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
