@@ -250,7 +250,7 @@ const App: React.FC = () => {
             </header>
 
             {/* Right Column (Scrollable) */}
-            <main className="pt-24 lg:w-1/2 lg:py-24 z-20">
+            <main className="pt-24 lg:w-1/2 lg:pb-16 z-20">
               
               <motion.section
                 id="about" 
@@ -333,7 +333,7 @@ const App: React.FC = () => {
                 aria-label="Certificates"
               >
                 <h2 className="text-sm font-bold uppercase tracking-widest text-textPrimary mb-3 lg:sr-only">Certificates</h2>
-                <ul className="divide-y divide-white/10 border-y border-white/10">
+                <ul className="divide-y divide-white/10 border-t border-white/10">
                   {certificates.map((cert) => (
                     <CertificateCard key={cert.id} data={cert} />
                   ))}
