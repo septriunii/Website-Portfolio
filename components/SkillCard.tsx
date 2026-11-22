@@ -19,95 +19,42 @@ interface SkillCardProps {
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*!<>?_=/[]';
 
 const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
-  const [displayName, setDisplayName] = useState(skill.name);
-  const [displayCategory, setDisplayCategory] = useState(skill.category);
-  const [displayTags, setDisplayTags] = useState<string[]>(skill.tags || []);
-  const [isScrambling, setIsScrambling] = useState(false);
+  const [frame, setFrame] = useState(0);
   const intervalRef = useRef<number | null>(null);
-
-  // Keep state synced if skill prop changes
-  useEffect(() => {
-    setDisplayName(skill.name);
-    setDisplayCategory(skill.category);
-    setDisplayTags(skill.tags || []);
-  }, [skill]);
+  const gentle = skill.name === 'API Integration' || skill.name === 'Version Control';
+  const frames = gentle ? 14 : 18;
 
   const startScramble = () => {
-    setIsScrambling(true);
-    let frame = 0;
-    const totalFrames = 18; // ~350ms total animation
-
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-
+    if (intervalRef.current !== null || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let step = 1;
+    setFrame(step);
     intervalRef.current = window.setInterval(() => {
-      frame++;
-      const ratio = frame / totalFrames;
-
-      // Scramble Name
-      const revealNameCount = Math.floor(ratio * skill.name.length);
-      let newName = '';
-      for (let i = 0; i < skill.name.length; i++) {
-        if (i < revealNameCount) {
-          newName += skill.name[i];
-        } else if (skill.name[i] === ' ') {
-          newName += ' ';
-        } else {
-          newName += CHARS[Math.floor(Math.random() * CHARS.length)];
-        }
+      step++;
+      if (step > frames) {
+        window.clearInterval(intervalRef.current!);
+        intervalRef.current = null;
+        setFrame(0);
+      } else {
+        setFrame(step);
       }
-      setDisplayName(newName);
-
-      // Scramble Category
-      const revealCatCount = Math.floor(ratio * skill.category.length);
-      let newCat = '';
-      for (let i = 0; i < skill.category.length; i++) {
-        if (i < revealCatCount) {
-          newCat += skill.category[i];
-        } else if (skill.category[i] === ' ') {
-          newCat += ' ';
-        } else {
-          newCat += CHARS[Math.floor(Math.random() * CHARS.length)];
-        }
-      }
-      setDisplayCategory(newCat);
-
-      // Scramble Tags
-      if (skill.tags) {
-        const newTags = skill.tags.map((tag) => {
-          const revealTagCount = Math.floor(ratio * tag.length);
-          let scrambledTag = '';
-          for (let i = 0; i < tag.length; i++) {
-            if (i < revealTagCount) {
-              scrambledTag += tag[i];
-            } else if (tag[i] === ' ') {
-              scrambledTag += ' ';
-            } else {
-              scrambledTag += CHARS[Math.floor(Math.random() * CHARS.length)];
-            }
-          }
-          return scrambledTag;
-        });
-        setDisplayTags(newTags);
-      }
-
-      if (frame >= totalFrames) {
-        if (intervalRef.current) clearInterval(intervalRef.current);
-        setDisplayName(skill.name);
-        setDisplayCategory(skill.category);
-        if (skill.tags) setDisplayTags(skill.tags);
-        setIsScrambling(false);
-      }
-    }, 20);
+    }, gentle ? 40 : 20);
   };
 
-  useEffect(() => {
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
+  useEffect(() => () => {
+    if (intervalRef.current !== null) window.clearInterval(intervalRef.current);
   }, []);
 
+  const scramble = (text: string) => {
+    if (!frame) return text;
+    const start = Math.floor((frame - 1) * text.length / frames);
+    const chars = gentle ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : CHARS;
+    return Array.from(text, (char, i) => {
+      if (i < start || (gentle && i >= start + 3) || !/[a-z0-9]/i.test(char)) return char;
+      const glyph = chars[(char.charCodeAt(0) + frame * 7 + i * 13) % chars.length];
+      return gentle && char === char.toLowerCase() ? glyph.toLowerCase() : glyph;
+    }).join('');
+  };
+  const title = scramble(skill.name);
   const IconComponent = skill.icon;
   const isLastRowMd = Math.floor(index / 3) === Math.floor((totalSkills - 1) / 3);
   const isLastRowSm = Math.floor(index / 2) === Math.floor((totalSkills - 1) / 2);
@@ -138,13 +85,10 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
       <div className="flex justify-between items-start gap-1.5 relative z-10">
         <div className="space-y-1 min-w-0 flex-1">
           <span className="block font-mono text-[9px] uppercase tracking-wider text-accent-teal/60 group-hover:text-accent-teal transition-colors truncate">
-            {displayCategory} // {index + 1 < 10 ? '0' : ''}{index + 1}
+            {gentle ? skill.category : scramble(skill.category)} // {index + 1 < 10 ? '0' : ''}{index + 1}
           </span>
-          <h3 className="text-xs sm:text-[13px] lg:text-sm font-bold font-mono tracking-tighter text-textPrimary group-hover:text-accent-teal transition-colors flex items-center gap-0.5">
-            <span className="min-w-0 break-words">{displayName}</span>
-            {isScrambling && (
-              <span className="animate-pulse text-accent-teal font-mono text-xs flex-shrink-0">_</span>
-            )}
+          <h3 aria-label={skill.name} className="break-words text-xs sm:text-[13px] lg:text-sm font-bold font-mono tracking-tighter text-textPrimary group-hover:text-accent-teal transition-colors">
+            <span aria-hidden="true">{title.slice(0, -1)}<span className="whitespace-nowrap">{title.slice(-1)}<span className={frame ? 'text-accent-teal' : 'invisible'}>_</span></span></span>
           </h3>
         </div>
         <div className="text-textSecondary/30 group-hover:text-accent-teal transition-colors duration-300 flex-shrink-0 pt-0.5">
@@ -153,9 +97,9 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
       </div>
 
       <div className="flex flex-wrap gap-x-2 gap-y-1 opacity-50 group-hover:opacity-100 transition-opacity duration-300 relative z-10 overflow-hidden max-h-[34px]">
-        {displayTags.map((tag, i) => (
+        {skill.tags?.map((tag, i) => (
           <span key={i} className="font-mono text-[8px] uppercase tracking-tighter text-textSecondary group-hover:text-accent-teal/80 whitespace-nowrap">
-            #{tag}
+            #{gentle ? tag : scramble(tag)}
           </span>
         ))}
       </div>
