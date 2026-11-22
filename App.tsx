@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { FileText, Mail, Atom, Github, Palette, Cpu, Terminal, ShieldCheck, CircuitBoard, Database, Network } from 'lucide-react';
+import { FileText, Mail, Atom, Github, Palette, Cpu, Terminal, ShieldCheck, CircuitBoard, Database, UploadCloud } from 'lucide-react';
 import Spotlight from './components/Spotlight';
 import CloudGridBackground from './components/CloudGridBackground';
 import BackgroundCode from './components/BackgroundCode';
@@ -131,15 +131,15 @@ const certificates: Certificate[] = [
 ];
 
 const skills = [
-  { name: "ReactJS", icon: Atom, category: "Frontend", strength: 5, tags: ["Hooks", "Context API", "SSR"] },
-  { name: "Cyber Security", icon: ShieldCheck, category: "Security", strength: 4, tags: ["Network Security", "Pen Testing", "Encryption"] },
-  { name: "Applied AI", icon: CircuitBoard, category: "AI Tools", strength: 4, tags: ["Prompt Engineering", "LLM APIs", "Automation"] },
-  { name: "Git and GitHub", icon: Github, category: "Tools", strength: 5, tags: ["Version Control", "CI/CD", "Collaboration"] },
-  { name: "C++", icon: Cpu, category: "Language", strength: 4, tags: ["OOP", "Memory Management", "STL"] },
-  { name: "Python", icon: Terminal, category: "Language", strength: 3, tags: ["Automation", "Data Analysis", "Scripting"] },
-  { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Accessibility"] },
-  { name: "API & Data Integration", icon: Database, category: "Backend", strength: 5, tags: ["REST APIs", "Axios / Fetch", "Async Data", "JSON / Errors"] },
-  { name: "Networking", icon: Network, category: "Infrastructure", strength: 4, tags: ["TCP/IP", "DNS / DHCP", "Routing & Switching"] },
+  { name: "Frontend Development", icon: Atom, category: "Frontend", strength: 5, tags: ["React", "JavaScript / TypeScript", "HTML / CSS"] },
+  { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Data Visualization"] },
+  { name: "API Integration", icon: Database, category: "Backend", strength: 5, tags: ["REST APIs", "Fetch / Axios", "Error Handling"] },
+  { name: "AI Integration", icon: CircuitBoard, category: "AI Tools", strength: 4, tags: ["LLM APIs", "Prompt Design", "Response Handling"] },
+  { name: "Scripting & Automation", icon: Terminal, category: "Tooling", strength: 3, tags: ["Python", "Data Processing", "Task Scripting"] },
+  { name: "Programming Fundamentals", icon: Cpu, category: "Core", strength: 4, tags: ["C++", "Algorithms", "Data Structures"] },
+  { name: "Networking & Security", icon: ShieldCheck, category: "Infrastructure", strength: 4, tags: ["TCP/IP", "Network Security", "Threat Detection"] },
+  { name: "Version Control", icon: Github, category: "Workflow", strength: 5, tags: ["Git", "GitHub", "Pull Requests"] },
+  { name: "Build & Deployment", icon: UploadCloud, category: "Delivery", strength: 4, tags: ["Vite", "Vercel", "Preview Deployments"] },
 ];
 
 const App: React.FC = () => {

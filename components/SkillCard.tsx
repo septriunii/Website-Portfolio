@@ -140,8 +140,8 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
           <span className="block font-mono text-[9px] uppercase tracking-wider text-accent-teal/60 group-hover:text-accent-teal transition-colors truncate">
             {displayCategory} // {index + 1 < 10 ? '0' : ''}{index + 1}
           </span>
-          <h3 className="text-xs sm:text-[13px] lg:text-sm font-bold font-mono tracking-tighter text-textPrimary group-hover:text-accent-teal transition-colors whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-0.5">
-            <span className="truncate">{displayName}</span>
+          <h3 className="text-xs sm:text-[13px] lg:text-sm font-bold font-mono tracking-tighter text-textPrimary group-hover:text-accent-teal transition-colors flex items-center gap-0.5">
+            <span className="min-w-0 break-words">{displayName}</span>
             {isScrambling && (
               <span className="animate-pulse text-accent-teal font-mono text-xs flex-shrink-0">_</span>
             )}
