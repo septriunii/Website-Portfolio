@@ -29,12 +29,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
             src={data.image} 
             alt={data.title}
             onError={() => setImgError(true)}
-            className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale brightness-90 group-hover:opacity-100 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 transition-[opacity,filter,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            className="absolute inset-0 w-full h-full object-cover opacity-[0.85] grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-[opacity,filter,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
             referrerPolicy="no-referrer"
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-accent-teal/10 pointer-events-none transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0"
+            className="absolute inset-0 bg-[#24443e]/[0.15] pointer-events-none transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0"
           />
         </>
       ) : (
