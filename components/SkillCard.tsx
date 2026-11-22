@@ -21,8 +21,8 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*!<>?_=/[]';
 const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
   const [frame, setFrame] = useState(0);
   const intervalRef = useRef<number | null>(null);
-  const gentle = skill.name === 'API Integration' || skill.name === 'Version Control';
-  const frames = gentle ? 14 : 18;
+  const titleOnly = skill.name === 'API Integration' || skill.name === 'Version Control';
+  const frames = 18;
 
   const startScramble = () => {
     if (intervalRef.current !== null || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -37,7 +37,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
       } else {
         setFrame(step);
       }
-    }, gentle ? 40 : 20);
+    }, 20);
   };
 
   useEffect(() => () => {
@@ -47,11 +47,11 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
   const scramble = (text: string) => {
     if (!frame) return text;
     const start = Math.floor((frame - 1) * text.length / frames);
-    const chars = gentle ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : CHARS;
+    const chars = titleOnly ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : CHARS;
     return Array.from(text, (char, i) => {
-      if (i < start || (gentle && i >= start + 3) || !/[a-z0-9]/i.test(char)) return char;
+      if (i < start || !/[a-z0-9]/i.test(char)) return char;
       const glyph = chars[(char.charCodeAt(0) + frame * 7 + i * 13) % chars.length];
-      return gentle && char === char.toLowerCase() ? glyph.toLowerCase() : glyph;
+      return titleOnly && char === char.toLowerCase() ? glyph.toLowerCase() : glyph;
     }).join('');
   };
   const title = scramble(skill.name);
@@ -85,7 +85,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
       <div className="flex justify-between items-start gap-1.5 relative z-10">
         <div className="space-y-1 min-w-0 flex-1">
           <span className="block font-mono text-[9px] uppercase tracking-wider text-accent-teal/60 group-hover:text-accent-teal transition-colors truncate">
-            {gentle ? skill.category : scramble(skill.category)} // {index + 1 < 10 ? '0' : ''}{index + 1}
+            {titleOnly ? skill.category : scramble(skill.category)} // {index + 1 < 10 ? '0' : ''}{index + 1}
           </span>
           <h3 aria-label={skill.name} className="break-words text-xs sm:text-[13px] lg:text-sm font-bold font-mono tracking-tighter text-textPrimary group-hover:text-accent-teal transition-colors">
             <span aria-hidden="true">{title.slice(0, -1)}<span className="whitespace-nowrap">{title.slice(-1)}<span className={frame ? 'text-accent-teal' : 'invisible'}>_</span></span></span>
@@ -99,7 +99,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
       <div className="flex flex-wrap gap-x-2 gap-y-1 opacity-50 group-hover:opacity-100 transition-opacity duration-300 relative z-10 overflow-hidden max-h-[34px]">
         {skill.tags?.map((tag, i) => (
           <span key={i} className="font-mono text-[8px] uppercase tracking-tighter text-textSecondary group-hover:text-accent-teal/80 whitespace-nowrap">
-            #{gentle ? tag : scramble(tag)}
+            #{titleOnly ? tag : scramble(tag)}
           </span>
         ))}
       </div>
