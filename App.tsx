@@ -131,13 +131,13 @@ const certificates: Certificate[] = [
 ];
 
 const skills = [
-  { name: "Frontend Development", icon: Atom, category: "Frontend", strength: 5, tags: ["React", "JavaScript / TypeScript", "HTML / CSS"] },
+  { name: "Frontend Development", icon: Atom, category: "Frontend", strength: 5, tags: ["React", "JavaScript", "TypeScript", "HTML", "CSS"] },
   { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Data Visualization"] },
-  { name: "API Integration", icon: Database, category: "Backend", strength: 5, tags: ["REST APIs", "Fetch / Axios", "Error Handling"] },
+  { name: "API Integration", icon: Database, category: "Backend", strength: 5, tags: ["REST APIs", "Fetch", "Axios", "Error Handling"] },
   { name: "AI Integration", icon: CircuitBoard, category: "AI Tools", strength: 4, tags: ["LLM APIs", "Prompt Design", "Response Handling"] },
   { name: "Scripting & Automation", icon: Terminal, category: "Tooling", strength: 3, tags: ["Python", "Data Processing", "Task Scripting"] },
   { name: "Programming Fundamentals", icon: Cpu, category: "Core", strength: 4, tags: ["C++", "Algorithms", "Data Structures"] },
-  { name: "Networking & Security", icon: ShieldCheck, category: "Infrastructure", strength: 4, tags: ["TCP/IP", "Network Security", "Threat Detection"] },
+  { name: "Networking & Security", icon: ShieldCheck, category: "Infrastructure", strength: 4, tags: ["TCP", "IP", "Network Security", "Threat Detection"] },
   { name: "Version Control", icon: Github, category: "Workflow", strength: 5, tags: ["Git", "GitHub", "Pull Requests"] },
   { name: "Build & Deployment", icon: UploadCloud, category: "Delivery", strength: 4, tags: ["Vite", "Vercel", "Preview Deployments"] },
 ];

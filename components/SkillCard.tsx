@@ -68,7 +68,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
         ease: [0.22, 1, 0.36, 1] 
       }}
       onMouseEnter={startScramble}
-      className={`group relative p-3.5 sm:p-4 flex flex-col justify-between h-[130px] border-white/10 transition-colors duration-300 hover:bg-accent-teal/[0.04] cursor-default overflow-hidden select-none transform-gpu
+      className={`group relative p-3.5 sm:p-4 flex flex-col justify-between min-h-[130px] gap-2 border-white/10 transition-colors duration-300 hover:bg-accent-teal/[0.04] cursor-default overflow-hidden select-none transform-gpu
         ${(index + 1) % 2 !== 0 ? 'sm:border-r' : 'sm:border-r-0'} 
         ${(index + 1) % 3 !== 0 ? 'md:border-r' : 'md:border-r-0'}
         ${isLastRowMobile ? 'border-b-0' : 'border-b'}
@@ -104,7 +104,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-x-2 gap-y-1 opacity-50 group-hover:opacity-100 transition-opacity duration-300 relative z-10 overflow-hidden max-h-[34px]">
+      <div className="flex flex-wrap gap-x-2 gap-y-1 opacity-50 group-hover:opacity-100 transition-opacity duration-300 relative z-10">
         {skill.tags?.map((tag, i) => (
           <span key={i} className="font-mono text-[8px] uppercase tracking-tighter text-textSecondary group-hover:text-accent-teal/80 whitespace-nowrap">
             #{scramble(tag)}
