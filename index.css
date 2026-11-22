@@ -52,3 +52,8 @@
   html.scroll-smooth { scroll-behavior: auto; }
   .section-nav a::before { transition: none; }
 }
+
+.project-thumbnail { opacity: .85; filter: grayscale(1); }
+.project-thumbnail-tint { background-color: rgb(36 68 62 / 15%); }
+.group:hover .project-thumbnail { opacity: 1; filter: grayscale(0); }
+.group:hover .project-thumbnail-tint { opacity: 0; }
