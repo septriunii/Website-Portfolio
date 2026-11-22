@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { FileText, Mail, Atom, Github, Palette, Cpu, Terminal, ShieldCheck, Sparkles, Database, Network } from 'lucide-react';
+import { FileText, Mail } from 'lucide-react';
 import Spotlight from './components/Spotlight';
 import CloudGridBackground from './components/CloudGridBackground';
 import BackgroundCode from './components/BackgroundCode';
@@ -131,15 +131,15 @@ const certificates: Certificate[] = [
 ];
 
 const skills = [
-  { name: "ReactJS", icon: Atom, category: "Frontend", strength: 5, tags: ["Hooks", "Context API", "SSR"] },
-  { name: "Cyber Security", icon: ShieldCheck, category: "Security", strength: 4, tags: ["Network Security", "Pen Testing", "Encryption"] },
-  { name: "Applied AI", icon: Sparkles, category: "AI Tools", strength: 4, tags: ["Prompt Engineering", "LLM APIs", "Automation"] },
-  { name: "Git and GitHub", icon: Github, category: "Tools", strength: 5, tags: ["Version Control", "CI/CD", "Collaboration"] },
-  { name: "C++", icon: Cpu, category: "Language", strength: 4, tags: ["OOP", "Memory Management", "STL"] },
-  { name: "Python", icon: Terminal, category: "Language", strength: 3, tags: ["Automation", "Data Analysis", "Scripting"] },
-  { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Accessibility"] },
-  { name: "API & Data Integration", icon: Database, category: "Backend", strength: 5, tags: ["REST APIs", "Axios / Fetch", "Async Data", "JSON / Errors"] },
-  { name: "Networking", icon: Network, category: "Infrastructure", strength: 4, tags: ["TCP/IP", "DNS / DHCP", "Routing & Switching"] },
+  { name: "ReactJS", mark: "< />", category: "Frontend", strength: 5, tags: ["Hooks", "Context API", "SSR"] },
+  { name: "Cyber Security", mark: "TLS", category: "Security", strength: 4, tags: ["Network Security", "Pen Testing", "Encryption"] },
+  { name: "Applied AI", mark: "ƒ(x)", category: "AI Tools", strength: 4, tags: ["Prompt Engineering", "LLM APIs", "Automation"] },
+  { name: "Git and GitHub", mark: "git", category: "Tools", strength: 5, tags: ["Version Control", "CI/CD", "Collaboration"] },
+  { name: "C++", mark: "++", category: "Language", strength: 4, tags: ["OOP", "Memory Management", "STL"] },
+  { name: "Python", mark: "Py", category: "Language", strength: 3, tags: ["Automation", "Data Analysis", "Scripting"] },
+  { name: "UI/UX Design", mark: "Aa", category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Accessibility"] },
+  { name: "API & Data Integration", mark: "{}", category: "Backend", strength: 5, tags: ["REST APIs", "Axios / Fetch", "Async Data", "JSON / Errors"] },
+  { name: "Networking", mark: "IP", category: "Infrastructure", strength: 4, tags: ["TCP/IP", "DNS / DHCP", "Routing & Switching"] },
 ];
 
 const App: React.FC = () => {
@@ -321,10 +321,6 @@ const App: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-6 flex items-center gap-2 text-[10px] font-mono text-textSecondary/40 italic">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent-teal animate-pulse"></div>
-                  <span>System core technologies verified and active</span>
-                </div>
               </section>
 
               <section 
