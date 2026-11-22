@@ -51,3 +51,5 @@
   html.scroll-smooth { scroll-behavior: auto; }
   .section-nav a::before { transition: none; }
 }
+
+.skill-square { aspect-ratio: 1; min-width: 0; container-type: inline-size; }
