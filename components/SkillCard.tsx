@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
+import { LucideIcon } from 'lucide-react';
 
 export interface SkillItem {
   name: string;
-  mark: string;
+  icon: LucideIcon;
   category: string;
   strength: number;
   tags?: string[];
@@ -107,6 +108,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
     };
   }, []);
 
+  const IconComponent = skill.icon;
   const isLastRowMd = Math.floor(index / 3) === Math.floor((totalSkills - 1) / 3);
   const isLastRowSm = Math.floor(index / 2) === Math.floor((totalSkills - 1) / 2);
   const isLastRowMobile = index === totalSkills - 1;
@@ -145,9 +147,9 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index, totalSkills }) => {
             )}
           </h3>
         </div>
-        <span aria-hidden="true" className="shrink-0 pt-0.5 font-mono text-xs font-semibold text-textSecondary/70 group-hover:text-accent-teal transition-colors">
-          {skill.mark}
-        </span>
+        <div className="text-textSecondary/30 group-hover:text-accent-teal transition-colors duration-300 flex-shrink-0 pt-0.5">
+          <IconComponent size={18} strokeWidth={1.5} />
+        </div>
       </div>
 
       <div className="flex flex-wrap gap-x-2 gap-y-1 opacity-50 group-hover:opacity-100 transition-opacity duration-300 relative z-10 overflow-hidden max-h-[34px]">
