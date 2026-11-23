@@ -85,7 +85,7 @@ const projects: Project[] = [
     code: 'QT_04_FIN',
     title: 'Quant Trading System',
     description: 'Quant Trading System is a quantitative algorithmic trading engine and financial backtesting pipeline designed for systematic market strategy execution. It features automated market data ingestion, quantitative indicator calculation, signal generation, risk-managed position sizing, and historical backtesting performance analysis.',
-    technologies: ['Python', 'Quantitative Finance', 'Backtesting', 'Algorithmic Trading', 'Data Analysis'],
+    technologies: ['Python', 'Backtesting', 'Algorithmic Trading'],
     githubLink: 'https://github.com/septriunii/quant-trading-system',
     image: '/assets/aistudio/Screenshot_2026-11-10_150549_975fc01b.png',
   },

@@ -171,7 +171,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
 
         <div className="flex-shrink-0 pt-2.5 mt-2 border-t border-white/5">
           <p className="text-[9px] uppercase tracking-widest text-textSecondary/40 mb-1.5 font-mono font-semibold">Tech Stack</p>
-          <ul className="flex flex-wrap gap-1.5">
+          <ul className="flex flex-wrap content-start items-start gap-1.5 md:min-h-[45px]">
             {data.technologies.map((tech) => (
               <li
                 key={tech}
