@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { FileText, Mail, Atom, Github, Palette, Cpu, Terminal, ShieldCheck, MessagesSquare, Database, UploadCloud } from 'lucide-react';
+import { FileText, Mail, Atom, Github, Palette, Cpu, Terminal, ShieldCheck, createLucideIcon, Database, UploadCloud } from 'lucide-react';
 import Spotlight from './components/Spotlight';
 import CloudGridBackground from './components/CloudGridBackground';
 import BackgroundCode from './components/BackgroundCode';
@@ -130,11 +130,20 @@ const certificates: Certificate[] = [
   },
 ];
 
+const GeminiIcon = createLucideIcon("Gemini", [
+  ["path", {
+    d: "M12 0C12.85 6.25 17.75 11.15 24 12C17.75 12.85 12.85 17.75 12 24C11.15 17.75 6.25 12.85 0 12C6.25 11.15 11.15 6.25 12 0Z",
+    fill: "#76a98c",
+    stroke: "none",
+    key: "star",
+  }],
+]);
+
 const skills = [
   { name: "Frontend Development", icon: Atom, category: "Frontend", strength: 5, tags: ["React", "JavaScript", "TypeScript", "HTML", "CSS"] },
   { name: "UI/UX Design", icon: Palette, category: "Design", strength: 4, tags: ["Figma", "Prototyping", "Data Visualization"] },
   { name: "API Integration", icon: Database, category: "Backend", strength: 5, tags: ["REST APIs", "Fetch", "Axios", "Error Handling"] },
-  { name: "AI Integration", icon: MessagesSquare, category: "AI Tools", strength: 4, tags: ["LLM APIs", "Prompt Design", "Response Handling"] },
+  { name: "AI Integration", icon: GeminiIcon, category: "AI Tools", strength: 4, tags: ["LLM APIs", "Prompt Design", "Response Handling"] },
   { name: "Scripting & Automation", icon: Terminal, category: "Tooling", strength: 3, tags: ["Python", "Data Processing", "Task Scripting"] },
   { name: "Programming Fundamentals", icon: Cpu, category: "Core", strength: 4, tags: ["C++", "Algorithms", "Data Structures"] },
   { name: "Networking & Security", icon: ShieldCheck, category: "Infrastructure", strength: 4, tags: ["TCP", "IP", "Network Security", "Threat Detection"] },
