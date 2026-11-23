@@ -132,9 +132,8 @@ const certificates: Certificate[] = [
 
 const GeminiIcon = createLucideIcon("Gemini", [
   ["path", {
-    d: "M12 0C12.85 6.25 17.75 11.15 24 12C17.75 12.85 12.85 17.75 12 24C11.15 17.75 6.25 12.85 0 12C6.25 11.15 11.15 6.25 12 0Z",
-    fill: "#76a98c",
-    stroke: "none",
+    d: "M12 2C12.7 7.2 16.8 11.3 22 12C16.8 12.7 12.7 16.8 12 22C11.3 16.8 7.2 12.7 2 12C7.2 11.3 11.3 7.2 12 2Z",
+    fill: "none",
     key: "star",
   }],
 ]);
