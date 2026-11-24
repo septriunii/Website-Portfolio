@@ -93,6 +93,15 @@ const projects: Project[] = [
 
 const certificates: Certificate[] = [
   {
+    id: 'cert-cs50-cybersecurity',
+    year: 'Nov 2026',
+    title: "CS50's Introduction to Cybersecurity",
+    issuer: 'Harvard University (CS50)',
+    description: 'Covered securing accounts, data, systems, and software, as well as preserving privacy.',
+    platform: 'CS50',
+    link: 'https://cs50.harvard.edu/certificates/56a0dea4-4e81-4d84-9a7a-a0332866e4a3',
+  },
+  {
     id: 'cert1',
     year: 'Jul 2026',
     title: 'Cybersecurity Fundamentals',
